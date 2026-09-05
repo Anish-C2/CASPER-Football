@@ -1,0 +1,26 @@
+[
+id=sl26a;
+e=SuperLeague;
+s=2026A;
+ed=1;
+org=CASPER;
+fmt=rr;
+t=6;
+dos=03092026;
+ven=Sector 2;
+sts=Ongoing;
+
+n(
+sey=Seyfert CF[Anish],
+bbu=Black Bird United[Anish],
+sra=Southern Rangers[Rudra],
+pcc=Park Circle[Rudra],
+rrc=Red Rangers CF[Rio],
+rtf=Red Tigers FC[Rio]
+);
+
+m(
+bbu-pcc:4-4#GS;
+sey-rrc:5-5#GS;
+);
+]
