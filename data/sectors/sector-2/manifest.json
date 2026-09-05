@@ -1,8 +1,8 @@
 {
   "sector": "sector-2",
   "version": "1.0",
-  "seasons": [],
-  "leagues": [],
+  "seasons": ["Season_2026A.csn"],
+  "leagues": ["SuperLeague"],
   "competitions": [],
-  "files": []
+  "files": ["Season_2026A.csn"]
 }
