@@ -26,8 +26,8 @@
         {"id":"tc26a","name":"Titan Cup","sport":"cricket","season":"2026A"}
       ],
       "seasons": ["2026A"],
-      "playerIds": [],
-      "clubCodes": [],
+      "playerIds": ["CAS-PL-0007","CAS-PL-0005","CAS-PL-0016","CAS-PL-0004","CAS-PL-0014","CAS-PL-0011","CAS-PL-0006","CAS-PL-0002","CAS-PL-0003","CAS-PL-0013","CAS-PL-0009","CAS-PL-0012","CAS-PL-0010","CAS-PL-0008"],
+      "clubCodes": ["bbu","sey","ssc","wfc","yfc","cgc","mar","goat","akk","bib","mfc","godo","nas","slr","kko","bb","rsa","fcs","rut","tro","vos","del","hor","nmc","mvl","bri","igr","acf"],
       "competitionIds": ["pc26a","rc26a","csc26a","gr26a","cl26a","prc26a","pl26a","sc26a","msc26a","ssc26a","fn26a","sc26a-football","tc26a"],
       "archive": { "dataRoot": "data/sectors/sector-1", "manifest": "data/sectors/sector-1/manifest.json" }
     },

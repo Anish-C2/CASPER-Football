@@ -18,5 +18,14 @@
     {"id":"tc26a","name":"Titan Cup","sport":"cricket","season":"2026A"}
   ],
   "competitions": ["pc26a","rc26a","csc26a","gr26a","cl26a","prc26a","pl26a","sc26a","msc26a","ssc26a","fn26a","sc26a-football","tc26a"],
-  "files": []
+  "files": [
+    "../../futsal/Season_2026A.csn",
+    "../../football/Season_2026A.csn",
+    "../../cricket/Season_2026A.csn"
+  ],
+  "sources": {
+    "futsal": "data/futsal/Season_2026A.csn",
+    "football": "data/football/Season_2026A.csn",
+    "cricket": "data/cricket/Season_2026A.csn"
+  }
 }
