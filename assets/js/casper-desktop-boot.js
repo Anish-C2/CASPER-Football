@@ -1,7 +1,7 @@
 /* CASPER DESKTOP BOOT — never leave the hub stuck on the loading banner. */
 (function () {
   'use strict';
-  var VERSION = '20260905c';
+  var VERSION = '20260906a';
 
   function root() {
     return (window.CASPER_PAGE && window.CASPER_PAGE.root) || '';
@@ -147,13 +147,20 @@
       loadJson('sports.json', { sports: [] }),
       loadJson('misc.json', {}),
       loadJson('player-registry.json', {}),
-      loadJson('data/sectors/sector-1/clubs.json', { sector: 'sector-1', clubs: {} })
+      loadJson('data/sectors/sector-1/clubs.json', { sector: 'sector-1', clubs: {} }),
+      loadJson('data/sectors/sector-2/clubs.json', { sector: 'sector-2', clubs: {} }),
+      loadJson('sectors.json', { sectors: [] })
     ]).then(function (pack) {
       readyState.config = pack[0] || {};
       readyState.sportsCfg = pack[1] || { sports: [] };
       readyState.misc = pack[2] || {};
       readyState.registry = Object.assign({}, pack[3] || {}, readyState.config.playerRegistry || {});
-      readyState.clubRegistry = (pack[4] && pack[4].clubs) || {};
+      readyState.clubRegistry = Object.assign({}, (pack[4] && pack[4].clubs) || {}, (pack[5] && pack[5].clubs) || {});
+      readyState.sectorRegistry = pack[6] || { sectors: [] };
+      readyState.sectorClubs = {
+        'sector-1': (pack[4] && pack[4].clubs) || {},
+        'sector-2': (pack[5] && pack[5].clubs) || {}
+      };
       var list = (readyState.sportsCfg.sports || []).slice();
       var chain = Promise.resolve();
       list.forEach(function (cfg) {
@@ -187,7 +194,23 @@
             });
         });
       });
-      return chain;
+      return chain.then(function () {
+        return fetch(root() + 'data/sectors/sector-2/Season_2026A.csn?v=' + VERSION)
+          .then(function (r) { return r.ok ? r.text() : ''; })
+          .then(function (text) {
+            if (!text || typeof parseCSN !== 'function') return;
+            var extra = parseCSN(text) || [];
+            var fut = readyState.sports.futsal;
+            if (!fut) return;
+            var existing = {};
+            (fut.tournaments || []).forEach(function (t) { if (t.meta && t.meta.id) existing[t.meta.id] = 1; });
+            var fresh = extra.filter(function (t) { return t.meta && t.meta.id && !existing[t.meta.id]; });
+            if (!fresh.length) return;
+            var merged = (fut.tournaments || []).concat(fresh);
+            readyState.sports.futsal = typeof buildSport === 'function' ? buildSport(fut.cfg, merged) : fut;
+          })
+          .catch(function () {});
+      });
     }).then(function () {
       applyClubRegistry({ clubs: readyState.clubRegistry });
       readyState.ready = true;
