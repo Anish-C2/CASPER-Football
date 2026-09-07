@@ -43,7 +43,7 @@
         {"id":"sl26a","name":"SuperLeague","sport":"futsal","season":"2026A"}
       ],
       "seasons": ["2026A"],
-      "playerIds": ["CAS-PL-0017","CAS-PL-0018"],
+      "playerIds": ["CAS-PL-0007","CAS-PL-0017","CAS-PL-0018"],
       "clubCodes": ["bbu","sey","sra","pcc","rrc","rtf"],
       "competitionIds": ["sl26a"],
       "archive": { "dataRoot": "data/sectors/sector-2", "manifest": "data/sectors/sector-2/manifest.json" }
