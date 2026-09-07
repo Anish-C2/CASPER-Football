@@ -1,0 +1,62 @@
+/* CASPER visual refresh — same paper / navy / gold language, tighter and more finished. */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+:root{
+  --ink:#12233f;
+  --gold:#b58c27;
+  --paper:#f6eedc;
+  --card:#fffdf6;
+  --line:#cbb98a;
+  --muted:#6b6256;
+}
+
+html,body{background:
+  radial-gradient(1200px 500px at 10% -10%, rgba(181,140,39,.12), transparent 55%),
+  linear-gradient(180deg,#efe4c8 0%, #f6eedc 180px, #f3ead6 100%);
+  color:var(--ink);
+  font-family:"Source Sans 3", Georgia, serif;
+}
+header{
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(18,35,63,.06);
+}
+.brand h1{font-family:"Libre Baskerville",Georgia,serif;letter-spacing:.4px}
+.brand .legacy{letter-spacing:.8px;text-transform:uppercase}
+.crest{box-shadow:inset 0 0 0 1px rgba(241,223,158,.35)}
+nav.main ul{background:#fffaf0}
+nav.main a{font-family:"Source Sans 3",sans-serif;letter-spacing:.3px}
+nav.main a.on,nav.main a.active{background:#12233f;color:#f1df9e}
+.desktop-page{
+  background:var(--card);
+  border:1px solid var(--line);
+  box-shadow:0 14px 40px rgba(18,35,63,.07);
+  padding:16px;
+}
+.desktop-hero{
+  background:
+    linear-gradient(135deg, rgba(181,140,39,.16), transparent 36%),
+    #12233f;
+  padding:22px 22px 20px;
+}
+.desktop-hero h2{font-family:"Libre Baskerville",Georgia,serif;font-size:30px;letter-spacing:.2px}
+.desktop-hero p{font-family:"Source Sans 3",sans-serif;font-size:14px;line-height:1.55;max-width:720px}
+.desktop-stat{background:linear-gradient(180deg,#f7eccb,#f1dfb7);transition:transform .15s ease}
+.desktop-stat:hover{transform:translateY(-2px)}
+.desktop-card{box-shadow:0 1px 0 rgba(18,35,63,.04)}
+.desktop-card h3{font-family:"Libre Baskerville",Georgia,serif}
+.desktop-section-title{font-family:"Source Sans 3",sans-serif;letter-spacing:1.2px}
+.sector-card,.join-step,.join-note,.join-cta{
+  box-shadow:0 10px 24px rgba(18,35,63,.05);
+}
+.sector-card:hover,.desktop-card:hover{border-color:#b58c27}
+.pills a{transition:background .15s ease,color .15s ease}
+footer.site{background:rgba(255,253,246,.9)}
+@media(max-width:860px){
+  body:has(nav.main){display:block;max-width:none}
+  body:has(nav.main)>header,body:has(nav.main) .topbar,body:has(nav.main) .pills,body:has(nav.main) .ticker,body:has(nav.main) nav.main{display:block;grid-column:auto;margin:6px 8px}
+  nav.main ul{flex-wrap:wrap}
+  nav.main li{flex:1 1 30%;border-bottom:1px solid #d4c4a0}
+  .topbar{grid-template-columns:1fr;gap:10px}
+  .quote,.clockbox{border:1px solid #d4c4a0}
+}
