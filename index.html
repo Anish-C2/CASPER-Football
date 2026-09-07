@@ -1,1 +1,84 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CASPER — Competitive Athletics & Sports Promotion</title><link rel="stylesheet" href="assets/css/casper.css?v=20260907a"><link rel="stylesheet" href="assets/css/casper-desktop.css?v=20260907a"><link rel="stylesheet" href="assets/css/casper-sidebar.css?v=20260907a"><link rel="stylesheet" href="assets/css/casper-plus.css?v=20260907a"><style>html,body{overflow-x:hidden;max-width:100%}</style><script>window.CASPER_PAGE={mode:'hub',sport:null,root:''};</script></head><body><header><div class="topbar"><div class="brand"><div class="crest">CA</div><div><h1>CASPER</h1><div class="sub">Competitive Athletics & Sports Promotion</div><div class="legacy">One Association. Three Sports. Infinite Legacy.</div></div></div><div class="quote">“Records are made.<br>Trophies are won.<br>Legends are remembered.”<br>– CASPER</div><div class="clockbox"><div class="k">CASPER TIME</div><div class="t" id="casper-time">--:--:--</div><div class="d" id="casper-date"></div></div></div><div class="pills"><a class="on" href="index.html">CASPER</a><a href="sports/futsal.html">Futsal</a><a href="sports/football.html">Football</a><a href="sports/cricket.html">Cricket</a></div><nav class="main"><ul><li><a href="#home" data-view="home">Home</a></li><li><a href="#news" data-view="news">News</a></li><li><a href="#archive" data-view="archive">Archive</a></li><li><a href="#competitions" data-view="competitions">Competitions</a></li><li><a href="#live-scores" data-view="live-scores">Live</a></li><li><a href="#results" data-view="results">Results</a></li><li><a href="#players" data-view="players">Players</a></li><li><a href="#teams" data-view="teams">Teams</a></li><li><a href="#awards" data-view="awards">Awards</a></li><li><a href="#ranking" data-view="ranking">Ranking</a></li><li><a href="#tables" data-view="tables">Tables</a></li><li><a href="#records" data-view="records">Records</a></li><li><a href="#statistics" data-view="statistics">Statistics</a></li><li><a href="sectors/index.html">Sectors</a></li><li><a href="governance/index.html">Governance</a></li><li><a href="join/index.html">Join</a></li><li><a href="api/index.html">API</a></li><li><a href="#about" data-view="about">About</a></li></ul></nav><div class="ticker"><div class="lbl">LATEST NEWS</div><div class="items" id="ticker-items">Loading archive…</div></div></header><main id="app"><div class="desktop-page"><div class="desktop-hero"><div><div class="desktop-kicker">COMPETITIVE ATHLETICS & SPORTS PROMOTION</div><h2>LOADING CASPER ARCHIVE…</h2><p>Initializing the desktop archive.</p></div></div></div></main><footer class="site"><div>© 2026 CASPER — Competitive Athletics & Sports Promotion</div><div>Desktop archive</div></footer><script src="assets/casper-core.js?v=20260907a"></script><script src="assets/js/casper-ui.js?v=20260907a"></script><script src="assets/js/casper-desktop-site.js?v=20260907a"></script><script src="assets/js/casper-sport-stats.js?v=20260907a"></script><script src="assets/js/casper-statistics-fix.js?v=20260907a"></script><script src="assets/js/casper-player-fix.js?v=20260907a"></script><script src="assets/js/casper-tables.js?v=20260907a"></script><script src="assets/js/casper-desktop-boot.js?v=20260907a"></script><script src="assets/js/casper-rich.js?v=20260907a"></script><script>window.addEventListener('hashchange',function(){if(window.route)window.route()});setTimeout(function(){var app=document.getElementById('app');if(app&&app.textContent.indexOf('LOADING CASPER ARCHIVE')!==-1&&typeof window.CASPER_DESKTOP_RENDER==='function'){try{window.CASPER_DESKTOP_RENDER()}catch(e){}}},2500);</script><script src="assets/js/casper-hotfix.js?v=20260907a"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CASPER — Competitive Athletics & Sports Promotion</title>
+<link rel="stylesheet" href="assets/css/casper.css?v=20260907ui">
+<link rel="stylesheet" href="assets/css/casper-desktop.css?v=20260907ui">
+<link rel="stylesheet" href="assets/css/casper-sidebar.css?v=20260907ui">
+<link rel="stylesheet" href="assets/css/casper-plus.css?v=20260907ui">
+<script>window.CASPER_PAGE={mode:"hub",sport:null,root:""};</script>
+</head>
+<body class="ca-app">
+<header class="ca-top">
+  <a class="ca-brand" href="index.html">
+    <div class="ca-crest">CA</div>
+    <div class="ca-wordmark"><b>CASPER</b><span>Competitive Athletics &amp; Sports Promotion</span></div>
+  </a>
+  <nav class="ca-topnav">
+    <a href="index.html" data-nav="home" class="on">Home</a>
+    <a href="index.html#competitions" data-nav="competitions">Competitions</a>
+    <a href="index.html#players" data-nav="players">Players</a>
+    <a href="index.html#teams" data-nav="clubs">Clubs</a>
+    <a href="sectors/index.html" data-nav="sectors">Sectors</a>
+    <a href="index.html#archive" data-nav="archive">Archive</a>
+    <a href="governance/index.html" data-nav="governance">Governance</a>
+  </nav>
+  <div class="ca-tools">
+    <form class="ca-search" id="ca-search-form" action="#">
+      <input name="q" placeholder="Search players, clubs, competitions…" autocomplete="off">
+      <button type="submit" class="ca-iconbtn" aria-label="Search" style="width:26px;height:26px;border:0;background:transparent">⌕</button>
+    </form>
+    <button type="button" class="ca-iconbtn" id="ca-theme-toggle" title="Theme">☾</button>
+    <div class="ca-user"><div class="ca-avatar">A</div><b>Anish</b></div>
+  </div>
+</header>
+<div class="ca-shell">
+  <aside class="ca-side">
+    <div class="ca-side-id">
+      <div class="k">CASPER</div>
+      <div class="s">Three sports. Infinite legacy.</div>
+    </div>
+    <nav class="main ca-nav">
+      <ul>
+        <li><a href="index.html" data-nav="home" class="on">Home</a></li>
+        <li><a href="sports/futsal.html" data-nav="futsal">Futsal</a></li>
+        <li><a href="sports/football.html" data-nav="football">Football</a></li>
+        <li><a href="sports/cricket.html" data-nav="cricket">Cricket</a></li>
+      </ul>
+      <div class="ca-hr"></div>
+      <ul>
+        <li><a href="index.html#archive" data-nav="archive">Archive</a></li>
+        <li><a href="sectors/index.html" data-nav="sectors">Sectors</a></li>
+        <li><a href="governance/index.html" data-nav="governance">Governance</a></li>
+        <li><a href="join/index.html" data-nav="join">Join</a></li>
+        <li><a href="api/index.html" data-nav="api">API</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="ca-work">
+    <main id="app"><div class="desktop-page"><section class="ca-hero desktop-hero"><div class="desktop-kicker">CASPER</div><h2>LOADING CASPER ARCHIVE…</h2><p>Initializing the federation desk from CSN season files.</p></section></div></main>
+    <footer class="ca-foot site"><div>© 2026 CASPER — Competitive Athletics &amp; Sports Promotion</div><div>Federation desk</div></footer>
+  </div>
+</div>
+<script src="assets/js/casper-shell.js?v=20260907ui"></script>
+<script src="assets/casper-core.js?v=20260907ui"></script>
+<script src="assets/js/casper-ui.js?v=20260907ui"></script>
+<script src="assets/js/casper-desktop-site.js?v=20260907ui"></script>
+<script src="assets/js/casper-sport-stats.js?v=20260907ui"></script>
+<script src="assets/js/casper-statistics-fix.js?v=20260907ui"></script>
+<script src="assets/js/casper-player-fix.js?v=20260907ui"></script>
+<script src="assets/js/casper-tables.js?v=20260907ui"></script>
+<script src="assets/js/casper-desktop-boot.js?v=20260907ui"></script>
+<script src="assets/js/casper-rich.js?v=20260907ui"></script>
+<script src="assets/js/casper-hotfix.js?v=20260907ui"></script>
+<script>
+(function(){
+  if (window.__CASPER_HASH_BOUND__) return;
+  window.__CASPER_HASH_BOUND__ = true;
+  window.addEventListener('hashchange', function () { if (window.route) window.route(); });
+})();
+</script>
+</body>
+</html>
