@@ -43,7 +43,7 @@ nav.main:before{display:none!important}
 .desktop-page{background:transparent;border:0;padding:0;box-shadow:none}
 .ca-stage{display:grid;grid-template-columns:minmax(0,1fr) var(--rail-w);gap:14px;align-items:start}
 .ca-hero,.desktop-hero{position:relative;overflow:hidden;border-radius:14px;min-height:250px;background:linear-gradient(90deg,rgba(8,14,24,.82),rgba(8,14,24,.4)),var(--navy-deep);color:#f6efe2;padding:28px;border:1px solid #1b2433}
-.ca-hero.hero-home{background:linear-gradient(90deg,rgba(7,12,22,.88),rgba(7,12,22,.35)),url('../img/hero-stadium.jpg') center right/cover no-repeat;min-height:268px}
+.ca-hero.hero-home{background:linear-gradient(105deg,rgba(7,12,22,.92) 0%,rgba(12,18,32,.72) 46%,rgba(18,24,38,.45) 100%),radial-gradient(ellipse at 78% 70%,rgba(196,160,86,.22),transparent 46%),var(--navy-deep);min-height:268px}
 .desktop-kicker{font:600 10.5px var(--sans);letter-spacing:1.7px;color:#d8c48a;text-transform:uppercase}
 .ca-hero h2,.desktop-hero h2{margin:8px 0;font:700 clamp(34px,4.2vw,52px)/.95 var(--serif);color:#e9d7a2;max-width:640px}
 .ca-hero p,.desktop-hero p{margin:0;max-width:460px;color:#e8e2d6;font:400 14.5px/1.5 var(--sans)}
@@ -104,7 +104,7 @@ nav.main:before{display:none!important}
 .ca-result,.ca-rank{display:flex;gap:8px;align-items:center;padding:8px 2px;border-bottom:1px solid var(--line)}
 .ca-tabs button{border:0;background:transparent;color:var(--muted);padding:5px 10px;border-radius:8px;font:600 12.5px var(--sans);cursor:pointer}
 .ca-tabs button.on{background:var(--navy);color:#f3ead6}
-.ca-banner{margin-top:16px;border-radius:12px;min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;color:#f3ead6;background:linear-gradient(90deg,rgba(8,14,24,.82),rgba(8,14,24,.55)),url('../img/banner-world.jpg') center/cover no-repeat}
+.ca-banner{margin-top:16px;border-radius:12px;min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;color:#f3ead6;background:linear-gradient(90deg,rgba(8,14,24,.88),rgba(18,28,46,.7) 55%,rgba(28,22,12,.55))}
 .ca-banner h2{margin:0;font:700 26px/1 var(--serif);color:#e9d7a2}
 .ca-banner .nums{display:flex;gap:28px;text-align:center}
 .ca-banner .nums b{display:block;font:700 22px var(--serif);color:#e9d7a2}
@@ -121,3 +121,19 @@ th{background:#f3ead6;font:700 11px var(--sans);text-transform:uppercase}
 @media(max-width:1180px){:root{--rail-w:240px}.ca-stats,.desktop-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.ca-lower{grid-template-columns:1fr 1fr}.ca-manifesto{display:none}}
 @media(max-width:980px){.ca-shell{grid-template-columns:1fr}.ca-side{min-height:0;border-right:0;border-bottom:1px solid var(--line)}.ca-stage{grid-template-columns:1fr}.ca-topnav{display:none}.ca-sports,.desktop-grid3,.desktop-grid4,.desktop-governance{grid-template-columns:1fr 1fr}}
 @media(max-width:720px){.ca-stats,.desktop-stats,.ca-sports,.desktop-grid2,.desktop-grid3,.ca-lower{grid-template-columns:1fr}.ca-user b{display:none}}
+
+.ca-ico{width:16px;display:inline-flex;justify-content:center;opacity:.75;font-style:normal}
+.ca-quote cite{display:block;margin-top:6px;font:600 12px var(--sans);font-style:normal;color:var(--ink-2)}
+.ca-home .ca-hero h2{text-transform:none}
+.ca-thumb-futsal{background:linear-gradient(135deg,#1c2a4a,#2a3d66)}
+.ca-thumb-football{background:linear-gradient(135deg,#163528,#21543b)}
+.ca-thumb-cricket{background:linear-gradient(135deg,#3a221c,#6a3a32)}
+.ca-thumb-awards{background:linear-gradient(135deg,#3a3018,#7a5a16)}
+.ca-thumb-general{background:linear-gradient(135deg,#2a323c,#3a4658)}
+.ca-feature{background:radial-gradient(circle at 30% 20%,rgba(212,179,106,.28),transparent 42%),linear-gradient(180deg,#24180c,#0d121c);min-height:250px}
+.ca-feature .cap a{color:#e9d7a2;font:600 13px var(--sans)}
+.ca-rank b{width:16px;color:var(--muted)}
+.ca-rank em{margin-left:auto;font:600 13px var(--sans);color:var(--ink)}
+.ca-avatar.mini{width:24px;height:24px;font-size:10px}
+.dark .ca-top,.dark .ca-search,.dark .ca-iconbtn,.dark .ca-time{background:var(--card)}
+.dark .ca-top{border-color:var(--line)}
