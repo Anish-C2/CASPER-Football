@@ -190,33 +190,32 @@ nav.main a.active{
 .tab.active,
 .ca-tabs button.on{background:#17263b;color:#f3ead6;border-color:#536f92}
 
-/* Editorial imagery: dramatic sports photography without changing the data/rendering layer. */
+/* Local CASPER artwork. No external image hotlinks. */
 .ca-home .hero-home{
   background-image:
     linear-gradient(90deg,rgba(7,12,22,.94) 0%,rgba(8,14,24,.72) 42%,rgba(8,14,24,.25) 100%),
-    url('https://biletalsat3.com/storage/media/32764/trabzonspor-biletleri.jpg');
+    url('../images/casper-hero.svg');
   background-size:cover;
-  background-position:center 48%;
+  background-position:center;
 }
 .ca-home .ca-feature{
   background-image:
     linear-gradient(180deg,rgba(8,12,20,.05) 30%,rgba(8,12,20,.9) 100%),
-    url('https://img.pikbest.com/ai/illus_our/20230427/4536441bc783c9189966620ea8dccedc.jpg%21bw700');
+    url('../images/casper-trophy.svg');
   background-size:cover;
   background-position:center;
 }
 .ca-home .ca-feature .cap{background:linear-gradient(180deg,transparent 0%,rgba(8,12,20,.9) 78%)}
-.ca-home .ca-news .ca-thumb{
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  overflow:hidden;
-}
-.ca-home .ca-news .ca-thumb-futsal{background-image:url('https://biletalsat3.com/storage/media/32764/trabzonspor-biletleri.jpg')}
-.ca-home .ca-news .ca-thumb-football{background-image:url('https://biletalsat3.com/storage/media/32764/trabzonspor-biletleri.jpg')}
-.ca-home .ca-news .ca-thumb-cricket{background-image:url('https://apexsportsground.com/assets/facilities-bat-ball-Bp7cBHg8.jpg')}
-.ca-home .ca-news .ca-thumb-awards{background-image:url('https://img.pikbest.com/ai/illus_our/20230427/4536441bc783c9189966620ea8dccedc.jpg%21bw700')}
-.ca-home .ca-news .ca-thumb-general{background-image:url('https://wallpaperaccess.com/full/1088617.jpg')}
+.ca-home .ca-news .ca-thumb{background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
+.ca-home .ca-news .ca-thumb-futsal{background-image:url('../images/casper-futsal.svg')}
+.ca-home .ca-news .ca-thumb-football{background-image:url('../images/casper-football.svg')}
+.ca-home .ca-news .ca-thumb-cricket{background-image:url('../images/casper-cricket.svg')}
+.ca-home .ca-news .ca-thumb-awards{background-image:url('../images/casper-trophy.svg')}
+.ca-home .ca-news .ca-thumb-general{background-image:url('../images/casper-world.svg')}
+.ca-home .ca-sport:nth-child(1){background-image:linear-gradient(90deg,rgba(5,14,26,.78),rgba(5,14,26,.2)),url('../images/casper-futsal.svg');background-size:cover;background-position:center}
+.ca-home .ca-sport:nth-child(2){background-image:linear-gradient(90deg,rgba(4,20,18,.78),rgba(4,20,18,.2)),url('../images/casper-football.svg');background-size:cover;background-position:center}
+.ca-home .ca-sport:nth-child(3){background-image:linear-gradient(90deg,rgba(35,16,10,.78),rgba(35,16,10,.2)),url('../images/casper-cricket.svg');background-size:cover;background-position:center}
+.ca-home .ca-foot{background-image:linear-gradient(90deg,rgba(7,13,22,.96),rgba(7,13,22,.55)),url('../images/casper-world.svg');background-size:cover;background-position:center}
 
 /* Theme hardening: shared components that previously ignored dark mode. */
 html.dark,
