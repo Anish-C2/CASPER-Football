@@ -1,2 +1,2 @@
-/* Plus layer folded into casper.css. Kept so existing pages keep loading. */
+/* Modular type tokens. Kept so existing <link> tags resolve. */
 html.dark body{background:#101820}
