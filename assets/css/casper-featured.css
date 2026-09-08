@@ -5,4 +5,8 @@
     url('../images/casper-featured.jpg');
   background-size:cover;
   background-position:center;
+  background-repeat:no-repeat;
+  background-color:#0b1018;
 }
+.ca-home .ca-feature{background-image:url('../images/casper-featured.jpg') !important}
+.ca-home .ca-feature .cap{background:linear-gradient(180deg,transparent 18%,rgba(8,12,20,.96) 100%)}
