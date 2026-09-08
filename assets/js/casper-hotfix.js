@@ -1,4 +1,5 @@
-/* CASPER HOTFIX — statistics render + sector-local archive + 2-sector cap. */
+/* CASPER HOTFIX — statistics render + sector-local archive + 2-sector cap.
+   Wrap route once. Never use a getter/setter pair that can call itself. */
 (function () {
   'use strict';
 
@@ -14,7 +15,7 @@
   }
   function esc(v) {
     return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
-      return { '&': '&', '<': '<', '>': '>', '"': '"', "'": '&#39;' }[c];
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
   function row(a, b) { return '<div class="desktop-row"><span>' + a + '</span><b>' + b + '</b></div>'; }
@@ -158,10 +159,14 @@
     });
   }
 
-  function wrap() {
-    if (window.__CASPER_HOTFIX_ROUTE) return true;
+  function attachRoute() {
     if (typeof window.route !== 'function') return false;
-    var inner = window.route;
+    if (window.route.__hotfixBound) return true;
+    if (!window.__CASPER_ROUTE_INNER || !window.__CASPER_ROUTE_INNER.__hotfixBound) {
+      if (!window.route.__hotfixBound) window.__CASPER_ROUTE_INNER = window.route;
+    }
+    var inner = window.__CASPER_ROUTE_INNER;
+    if (typeof inner !== 'function') return false;
     function wrapped() {
       pruneToSector();
       if (isStats()) { paintStats(); return; }
@@ -172,15 +177,30 @@
         if (app) app.innerHTML = '<div class="desktop-page"><div class="desktop-hero"><div class="desktop-kicker">ARCHIVE</div><h2>VIEW RECOVERED</h2><p>The previous page stayed on screen because this view crashed. It is safe to keep browsing.</p></div>' + card('DETAIL', row('Error', esc(err && err.message ? err.message : err))) + '</div>';
       }
     }
+    wrapped.__hotfixBound = true;
     window.route = wrapped;
-    window.__CASPER_HOTFIX_ROUTE = true;
+    return true;
+  }
+
+  function wrapRender() {
+    var prev = window.CASPER_DESKTOP_RENDER;
+    if (typeof prev !== 'function' || prev.__hotfixRender) return typeof prev === 'function';
+    var next = function () {
+      var out = prev.apply(this, arguments);
+      attachRoute();
+      if (isStats()) paintStats();
+      return out;
+    };
+    next.__hotfixRender = true;
+    window.CASPER_DESKTOP_RENDER = next;
     return true;
   }
 
   function bootHook() {
     if (typeof STATE === 'undefined' || !STATE.ready) return false;
     pruneToSector();
-    wrap();
+    wrapRender();
+    attachRoute();
     if (isStats()) paintStats();
     return true;
   }
@@ -188,11 +208,12 @@
   var n = 0;
   var timer = setInterval(function () {
     n += 1;
-    wrap();
+    wrapRender();
+    attachRoute();
     if (bootHook() || n > 120) clearInterval(timer);
   }, 50);
   window.addEventListener('hashchange', function () {
-    wrap();
+    attachRoute();
     if (isStats()) paintStats();
   });
 })();
