@@ -44,3 +44,63 @@ html.dark body{background:#101820}
 .ca-home .ca-news .ca-date{font:500 10px/1.2 var(--mono)}
 .ca-home .ca-news .ca-badge{font-size:9px;line-height:1.2;padding:2px 6px}
 .ca-home .ca-news{gap:8px;padding:7px 2px}
+
+/* Theme hardening: shared components that previously ignored dark mode. */
+html.dark,
+html.dark body,
+html.dark .ca-app{background:#101820;color:#e8edf2}
+html.dark .ca-shell,
+html.dark .ca-work,
+html.dark main,
+html.dark section,
+html.dark article{color:#e8edf2}
+html.dark .ca-card,
+html.dark .ca-feature,
+html.dark .desktop-card,
+html.dark .desktop-doc,
+html.dark .card,
+html.dark .panel,
+html.dark .box,
+html.dark .section-card,
+html.dark .stat-card,
+html.dark .competition-card,
+html.dark .player-card,
+html.dark .club-card,
+html.dark .team-card,
+html.dark .record-card,
+html.dark .doc-card{background:#151f29;color:#e8edf2;border-color:#2b3743}
+html.dark input,
+html.dark textarea,
+html.dark select,
+html.dark .search,
+html.dark .searchbox,
+html.dark .search-bar,
+html.dark .input,
+html.dark .select{background:#151f29;color:#e8edf2;border-color:#344250}
+html.dark a{color:#e8edf2}
+html.dark .ca-side,
+html.dark .ca-top,
+html.dark .ca-foot{background:#0d151c;color:#dfe6ec;border-color:#26323d}
+html.dark .ca-nav a,
+html.dark .ca-topnav a,
+html.dark nav.main a{color:#dfe6ec}
+html.dark .ca-nav a:hover,
+html.dark .ca-topnav a:hover,
+html.dark nav.main a:hover{background:#1b2732}
+html.dark .ca-banner,
+html.dark .ca-ticker,
+html.dark .ticker{background:#151f29;color:#dfe6ec;border-color:#2b3743}
+html.dark .ca-badge,
+html.dark .badge,
+html.dark .pill,
+html.dark .chip,
+html.dark .tag{background:#202d39;color:#dfe6ec;border-color:#354452}
+html.dark table{color:#e8edf2;border-color:#2b3743}
+html.dark th,
+html.dark td{border-color:#2b3743}
+html.dark .muted,
+html.dark .meta,
+html.dark .ca-date,
+html.dark small{color:#9eabb7}
+html.dark hr{border-color:#2b3743}
+html.dark button{color:inherit}
