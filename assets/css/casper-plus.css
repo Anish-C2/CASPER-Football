@@ -1,2 +1,9 @@
-/* Modular type tokens. Kept so existing <link> tags resolve. */
+/* Type overlay so every page that already loads plus.css picks up Inter Tight + IBM Plex Mono. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap');
+:root{
+  --sans:"Inter Tight", "Segoe UI", sans-serif;
+  --serif:"Inter Tight", "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+html,body{font-family:var(--sans)}
 html.dark body{background:#101820}

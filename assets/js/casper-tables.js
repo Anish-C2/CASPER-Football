@@ -1,4 +1,4 @@
-/* CASPER TABLES — league tables + top scorers. Survives other route wrappers. */
+/* CASPER TABLES — league tables + top scorers. No route getter/setter. */
 (function () {
   'use strict';
 
@@ -263,49 +263,27 @@
       paintTablesPage();
       return;
     }
-    if (view === 'home' || view === '') injectHomeTables();
+    if (view === 'home' || view === '') {
+      var mode = window.CASPER_PAGE && window.CASPER_PAGE.mode;
+      if (mode === 'sport' || mode === 'sector') injectHomeTables();
+    }
     if (view.indexOf('player') === 0) patchRegistryClubs();
   }
 
-  function hijackRoute() {
-    var current = window.route;
-    function wrapped() {
-      if (hashView() === 'tables') {
-        paintTablesPage();
-        return;
-      }
-      if (typeof current === 'function') current.apply(this, arguments);
-      setTimeout(tick, 0);
-    }
-    try {
-      Object.defineProperty(window, 'route', {
-        configurable: true,
-        get: function () { return wrapped; },
-        set: function (fn) { current = fn; }
-      });
-    } catch (e) {
-      window.route = wrapped;
-    }
-    var prev = window.CASPER_DESKTOP_RENDER;
-    if (typeof prev === 'function' && !prev.__tablesWrapped) {
-      var wrapRender = function () {
-        var out = prev.apply(this, arguments);
-        setTimeout(tick, 0);
-        return out;
-      };
-      wrapRender.__tablesWrapped = true;
-      window.CASPER_DESKTOP_RENDER = wrapRender;
-    }
-  }
-
-  hijackRoute();
-  setInterval(hijackRoute, 400);
-  setInterval(tick, 250);
-  window.addEventListener('hashchange', function () { setTimeout(tick, 0); setTimeout(tick, 80); });
+  window.addEventListener('hashchange', function () {
+    setTimeout(tick, 0);
+    setTimeout(tick, 80);
+  });
   document.addEventListener('click', function (ev) {
     var a = ev.target && ev.target.closest ? ev.target.closest('a[href="#tables"], a[data-view="tables"]') : null;
     if (!a) return;
     setTimeout(tick, 0);
     setTimeout(tick, 80);
   }, true);
+  var n = 0;
+  var timer = setInterval(function () {
+    n += 1;
+    tick();
+    if ((typeof STATE !== 'undefined' && STATE.ready && n > 8) || n > 80) clearInterval(timer);
+  }, 80);
 })();
