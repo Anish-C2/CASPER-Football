@@ -4,6 +4,34 @@
   --sans:"Inter Tight", "Segoe UI", sans-serif;
   --serif:"Inter Tight", "Segoe UI", sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --radius:4px;
 }
 html,body{font-family:var(--sans)}
 html.dark body{background:#101820}
+
+/* CASPER visual system: crisp federation panels, minimal rounding. */
+.ca-crest{border-radius:3px}
+.ca-topnav a{border-radius:3px}
+.ca-search{border-radius:3px}
+.ca-nav a,nav.main a{border-radius:3px}
+.ca-hero,.desktop-hero{border-radius:3px}
+.btn,.desktop-actions a,.ca-hero-actions a{border-radius:3px}
+.ca-ticker,.ticker{border-radius:3px}
+.ticker .lbl,.ca-ticker .lbl{border-radius:3px}
+.ca-sport{border-radius:3px}
+.ca-stats .ca-stat,.desktop-stats .desktop-stat{border-radius:3px}
+.ca-card,.desktop-card,.desktop-doc,.join-cta,.sector-card,.api-card{border-radius:4px}
+.ca-feature{border-radius:3px}
+.ca-thumb{border-radius:3px}
+.ca-badge{border-radius:3px}
+.ca-time{border-radius:3px}
+.ca-tabs button{border-radius:3px}
+.ca-banner{border-radius:3px}
+
+/* Legacy/shared components that still appear on archive and sport pages. */
+.card,.panel,.box,.section-card,.stat-card,.competition-card,.player-card,.club-card,.team-card,.record-card,.doc-card{border-radius:4px!important}
+.pill,.pills a,.chip,.tag,.badge,.filter-chip,.tab,.tabs a,.tabs button{border-radius:3px!important}
+.search,.searchbox,.search-bar,.input,.select,select,input,textarea{border-radius:3px}
+
+/* Keep genuinely circular controls circular. */
+.ca-iconbtn,.ca-avatar,.ca-sport .ico{border-radius:50%}
