@@ -4,7 +4,7 @@
 
   function esc(v) {
     return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
-      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      return { '&': '&', '<': '<', '>': '>', '"': '"', "'": '&#39;' }[c];
     });
   }
   function sportsCfg() {
@@ -19,10 +19,13 @@
   function blurb(id) {
     return ({ futsal: 'Fast. Technical. Global.', football: 'Clubs. Nations. Passion.', cricket: 'Tradition. Strategy. Prestige.' })[id] || '';
   }
+  function gico(name) {
+    return '<span class="material-symbols-outlined" aria-hidden="true">' + name + '</span>';
+  }
   function icon(id) {
-    if (id === 'football') return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3c2.2 2.4 3.2 5.2 3.2 9S14.2 18.6 12 21c-2.2-2.4-3.2-5.2-3.2-9S9.8 5.4 12 3z"/><path d="M4 9.5h16M4 14.5h16"/></svg>';
-    if (id === 'cricket') return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 20l9-9"/><path d="M12.5 8.5l3 3"/><circle cx="17.5" cy="6.5" r="2.2"/><path d="M4 21h5"/></svg>';
-    return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 8.5c1.4-1 2.6-1.5 4-1.5s2.6.5 4 1.5M8 15.5c1.4 1 2.6 1.5 4 1.5s2.6-.5 4-1.5M7 12h10"/></svg>';
+    if (id === 'football') return gico('stadium');
+    if (id === 'cricket') return gico('sports_cricket');
+    return gico('sports_soccer');
   }
   function scoreOf(m) {
     if (!m) return '—';
@@ -152,7 +155,7 @@
       ? 'Black Bird United are crowned champions of the Pioneer Cup / Finale from the loaded 2026A file.'
       : 'Drawn from CSN season files — champions, awards and match lines published as they land.';
     var sportCards = sportsCfg().map(function (c) {
-      return '<a class="ca-sport ' + esc(c.id) + '" href="sports/' + esc(c.id) + '.html"><span class="ico">' + icon(c.id) + '</span><span><b>' + esc(c.name) + '</b><span>' + esc(blurb(c.id)) + '</span></span><span class="go">›</span></a>';
+      return '<a class="ca-sport ' + esc(c.id) + '" href="sports/' + esc(c.id) + '.html"><span class="ico">' + icon(c.id) + '</span><span><b>' + esc(c.name) + '</b><span>' + esc(blurb(c.id)) + '</span></span><span class="go">' + gico('chevron_right') + '</span></a>';
     }).join('');
     var newsRows = news.slice(0, 5).map(function (item) {
       var kind = newsKind(item);
@@ -182,7 +185,7 @@
       '<div class="ca-stage">' +
         '<div class="ca-maincol">' +
           '<section class="ca-hero hero-home desktop-hero">' +
-            '<div class="desktop-kicker">Competitive Athletics &amp; Sports Promotion</div>' +
+            '<div class="desktop-kicker">Competitive Athletics & Sports Promotion</div>' +
             '<h2>Three sports.<br>Infinite legacy.</h2>' +
             '<p>Futsal. Football. Cricket. United under one global system.</p>' +
             '<div class="ca-hero-actions desktop-actions">' +
@@ -191,30 +194,30 @@
             '</div>' +
             '<div class="ca-manifesto"><span>Play.</span><span>Compete.</span><span>Achieve.</span><span>Be remembered.</span></div>' +
           '</section>' +
-          '<div class="ca-ticker ticker"><span class="lbl">Latest</span><div class="items" id="ticker-items">' + esc(ticker.join('  |  ')) + '</div></div>' +
+          '<div class="ca-ticker ticker"><span class="lbl">' + gico('campaign') + ' Latest</span><div class="items" id="ticker-items">' + esc(ticker.join('  |  ')) + '</div></div>' +
           '<div class="ca-sports">' + sportCards + '</div>' +
           '<div class="ca-stats">' +
-            '<div class="ca-stat"><b>' + f.comps + '</b><span>Total Competitions</span></div>' +
-            '<div class="ca-stat"><b>' + f.clubs + '</b><span>Registered Clubs</span></div>' +
-            '<div class="ca-stat"><b>' + f.players + '</b><span>Registered Players</span></div>' +
-            '<div class="ca-stat"><b>' + sectorsN + '</b><span>Active Sectors</span></div>' +
-            '<div class="ca-stat"><b>' + seasonsN + '</b><span>Seasons Completed</span></div>' +
-            '<div class="ca-stat"><b>' + recordsN + '</b><span>Major Records</span></div>' +
+            '<div class="ca-stat">' + gico('emoji_events') + '<div><b>' + f.comps + '</b><span>Total Competitions</span></div></div>' +
+            '<div class="ca-stat">' + gico('shield') + '<div><b>' + f.clubs + '</b><span>Registered Clubs</span></div></div>' +
+            '<div class="ca-stat">' + gico('groups') + '<div><b>' + f.players + '</b><span>Registered Players</span></div></div>' +
+            '<div class="ca-stat">' + gico('grid_view') + '<div><b>' + sectorsN + '</b><span>Active Sectors</span></div></div>' +
+            '<div class="ca-stat">' + gico('calendar_month') + '<div><b>' + seasonsN + '</b><span>Seasons Completed</span></div></div>' +
+            '<div class="ca-stat">' + gico('workspace_premium') + '<div><b>' + recordsN + '</b><span>Major Records</span></div></div>' +
           '</div>' +
           '<div class="ca-lower">' +
             '<article class="ca-card ca-feature-card">' +
-              '<div class="ca-hd">Featured <a class="view-all" href="#news">View All →</a></div>' +
+              '<div class="ca-hd"><span class="ca-hd-title">' + gico('star') + ' Featured</span> <a class="view-all" href="#news">View All →</a></div>' +
               '<div class="ca-feature"><div class="cap"><span class="ca-badge bg-awards">Pioneer Cup</span><h4>' + esc(featTitle) + '</h4><p>' + esc(featBody) + '</p><a href="#news">Read More →</a></div></div>' +
             '</article>' +
-            '<article class="ca-card"><div class="ca-hd">Latest News <a class="view-all" href="#news">View All →</a></div>' + newsRows + '</article>' +
-            '<article class="ca-card"><div class="ca-hd">Upcoming Matches <a class="view-all" href="#live-scores">View All →</a></div>' + upcoming + '</article>' +
+            '<article class="ca-card"><div class="ca-hd"><span class="ca-hd-title">' + gico('newspaper') + ' Latest News</span> <a class="view-all" href="#news">View All →</a></div>' + newsRows + '</article>' +
+            '<article class="ca-card"><div class="ca-hd"><span class="ca-hd-title">' + gico('event') + ' Upcoming Matches</span> <a class="view-all" href="#live-scores">View All →</a></div>' + upcoming + '</article>' +
           '</div>' +
         '</div>' +
         '<aside class="ca-rail">' +
-          '<div class="ca-time"><div class="hd">CASPER TIME</div><div class="t" id="casper-time">--:--:--</div><div class="d" id="casper-date"></div></div>' +
-          '<div class="ca-card"><div class="ca-hd">Recent Results <a class="view-all" href="#results">View All →</a></div>' + results + '</div>' +
+          '<div class="ca-time"><div class="hd">' + gico('schedule') + ' CASPER TIME</div><div class="t" id="casper-time">--:--:--</div><div class="d" id="casper-date"></div></div>' +
+          '<div class="ca-card"><div class="ca-hd"><span class="ca-hd-title">' + gico('scoreboard') + ' Recent Results</span> <a class="view-all" href="#results">View All →</a></div>' + results + '</div>' +
           '<div class="ca-card">' +
-            '<div class="ca-hd">Global Rankings <a class="view-all" href="#ranking">View All →</a></div>' +
+            '<div class="ca-hd"><span class="ca-hd-title">' + gico('leaderboard') + ' Global Rankings</span> <a class="view-all" href="#ranking">View All →</a></div>' +
             '<div class="ca-tabs">' +
               '<button type="button" class="on" data-rank-tab="futsal">Futsal</button>' +
               '<button type="button" data-rank-tab="football">Football</button>' +
