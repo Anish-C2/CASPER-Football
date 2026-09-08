@@ -48,28 +48,38 @@
     if (!val) return '';
     return (t.n && t.n[val] && t.n[val].name) || val;
   }
-  function newsKind(item) {
-    if (item && item.kind) return item.kind;
-    var t = String((item && item.title) || item || '').toUpperCase();
+  function newsKind(text) {
+    var t = String(text || '').toUpperCase();
     if (/CRICKET|TITAN|RUNS|WICKET/.test(t)) return 'cricket';
-    if (/FOOTBALL|SUPERCUP|4V4/.test(t) && !/FUTSAL|FINALE|PIONEER/.test(t)) return 'football';
-    if (/AWARD|SEASONAL|POINTS|TSAR|CROWN OF/.test(t)) return 'awards';
+    if (/FOOTBALL|4V4/.test(t) && !/FUTSAL|FINALE|PIONEER/.test(t)) return 'football';
+    if (/AWARD|SEASONAL|POINTS/.test(t)) return 'awards';
     if (/REGIST|GENERAL|SECTOR/.test(t)) return 'general';
     return 'futsal';
   }
-  function asStory(item) {
-    if (item && typeof item === 'object' && item.title) return item;
-    var text = String(item || '');
-    return { title: text, dek: '', body: '', kind: newsKind(text), tag: 'Bulletin', season: '2026A' };
+  function newsTitle(text) {
+    var s = String(text || '').replace(/^SEASONAL\s*·\s*/i, '').replace(/^HAT-TRICK\s*·\s*/i, '').replace(/^THRASHING\s*·\s*/i, '');
+    if (s.length > 64) s = s.slice(0, 61) + '…';
+    return s.replace(/\w+/g, function (w) {
+      if (/^\d/.test(w) || w.length <= 2) return w;
+      return w.charAt(0) + w.slice(1).toLowerCase();
+    });
   }
   function newsItems() {
-    if (typeof generateNewsStories === 'function') {
-      try { return generateNewsStories(); } catch (e) {}
-    }
     if (typeof generateNews === 'function') {
-      try { return generateNews().map(asStory); } catch (e) {}
+      try { return generateNews(); } catch (e) {}
     }
-    return [];
+    var items = [];
+    sportsCfg().forEach(function (c) {
+      var s = sportOf(c.id);
+      if (typeof crownWinner === 'function') {
+        var ch = crownWinner(c);
+        if (ch) items.push(clubName(s, ch).toUpperCase() + ' HOLD THE ' + String(c.crown).toUpperCase());
+      }
+      (s.tournaments || []).forEach(function (t) {
+        if (t.aw && t.aw.ch) items.push((t.meta.e || t.meta.id).toUpperCase() + ' CHAMPIONS: ' + String(holder(t, 'ch')).toUpperCase());
+      });
+    });
+    return items;
   }
   function facts() {
     var f = { players: 0, clubs: 0, matches: 0, comps: 0 };
@@ -136,20 +146,20 @@
     sectors.forEach(function (s) { seasonsN += (s.seasons || []).length; });
     if (!seasonsN) seasonsN = 1;
     var recordsN = ((STATE.misc && STATE.misc.records) || []).length;
-    var news = newsItems().map(asStory);
-    var ticker = news.slice(0, 8).map(function (n) { return n.title; });
+    var news = newsItems();
+    var ticker = news.slice(0, 8);
     if (!ticker.length) ticker = ['CASPER archive online', 'Three sports. Infinite legacy.'];
-    var feat = news[0] || { title: 'The archive is live', body: 'Champions, series and awards land here as soon as a CSN file is loaded.', tag: 'Desk', kind: 'awards' };
-    var featTitle = feat.title;
-    var featBody = feat.body || feat.dek || 'Drawn from CSN season files — champions, awards and match lines published as they land.';
+    var featRaw = news[0] || 'CASPER archive is live.';
+    var featTitle = newsTitle(featRaw);
+    var featBody = /HOLD THE FINALE|FINALE CHAMPION/i.test(featRaw)
+      ? 'Black Bird United are crowned champions of the Pioneer Cup / Finale from the loaded 2026A file.'
+      : 'Drawn from CSN season files — champions, awards and match lines published as they land.';
     var sportCards = sportsCfg().map(function (c) {
       return '<a class="ca-sport ' + esc(c.id) + '" href="sports/' + esc(c.id) + '.html"><span class="ico">' + icon(c.id) + '</span><span><b>' + esc(c.name) + '</b><span>' + esc(blurb(c.id)) + '</span></span><span class="go">' + gico('chevron_right') + '</span></a>';
     }).join('');
     var newsRows = news.slice(0, 5).map(function (item) {
       var kind = newsKind(item);
-      var blurb = item.dek || item.body || '';
-      if (blurb.length > 110) blurb = blurb.slice(0, 107) + '…';
-      return '<article class="ca-news"><div class="ca-thumb ca-thumb-' + kind + '"></div><div><b>' + esc(item.title) + '</b><p>' + esc(blurb) + '</p><div><span class="ca-badge bg-' + kind + '">' + esc(item.tag || kind) + '</span></div></div><div class="ca-date">' + esc(item.season || '2026A') + '</div></article>';
+      return '<article class="ca-news"><div class="ca-thumb ca-thumb-' + kind + '"></div><div><b>' + esc(newsTitle(item)) + '</b><div><span class="ca-badge bg-' + kind + '">' + esc(kind) + '</span></div></div><div class="ca-date">2026A</div></article>';
     }).join('') || '<div class="desktop-muted">News will appear when CSN awards and results load.</div>';
     var upcoming = inProgress().map(function (x) {
       return '<div class="ca-match"><span>' + icon(x.cfg.id) + '</span><div><b>' + esc(x.t.meta.e || x.t.meta.id) + '</b><div class="desktop-muted">' + esc(x.cfg.name) + ' · ' + esc(x.t.meta.sts || 'In progress') + '</div></div></div>';
@@ -197,7 +207,7 @@
           '<div class="ca-lower">' +
             '<article class="ca-card ca-feature-card">' +
               '<div class="ca-hd"><span class="ca-hd-title">' + gico('star') + ' Featured</span> <a class="view-all" href="#news">View All →</a></div>' +
-              '<div class="ca-feature"><div class="cap"><span class="ca-badge bg-' + esc(feat.kind || 'awards') + '">' + esc(feat.tag || 'Featured') + '</span><h4>' + esc(featTitle) + '</h4><p>' + esc(featBody) + '</p><a href="#news">Read More →</a></div></div>' +
+              '<div class="ca-feature"><div class="cap"><span class="ca-badge bg-awards">Pioneer Cup</span><h4>' + esc(featTitle) + '</h4><p>' + esc(featBody) + '</p><a href="#news">Read More →</a></div></div>' +
             '</article>' +
             '<article class="ca-card"><div class="ca-hd"><span class="ca-hd-title">' + gico('newspaper') + ' Latest News</span> <a class="view-all" href="#news">View All →</a></div>' + newsRows + '</article>' +
             '<article class="ca-card"><div class="ca-hd"><span class="ca-hd-title">' + gico('event') + ' Upcoming Matches</span> <a class="view-all" href="#live-scores">View All →</a></div>' + upcoming + '</article>' +
