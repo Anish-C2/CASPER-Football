@@ -45,6 +45,151 @@ html.dark body{background:#101820}
 .ca-home .ca-news .ca-badge{font-size:9px;line-height:1.2;padding:2px 6px}
 .ca-home .ca-news{gap:8px;padding:7px 2px}
 
+/* Consistent buttons and button-like links on every CASPER page. */
+.btn,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.desktop-actions a,
+.ca-hero-actions a,
+.actions a,
+.action,
+.btn-primary,
+.btn-secondary,
+.btn-gold,
+.btn-ghost,
+.btn-navy{
+  appearance:none;
+  -webkit-appearance:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:34px;
+  padding:8px 14px;
+  border:1px solid #344250;
+  border-radius:3px!important;
+  background:#151f29;
+  color:#e8edf2;
+  font:600 13px/1 var(--sans);
+  text-decoration:none;
+  box-shadow:none;
+  cursor:pointer;
+  transition:background .15s ease,border-color .15s ease,color .15s ease,transform .15s ease;
+}
+.btn:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+.desktop-actions a:hover,
+.ca-hero-actions a:hover,
+.actions a:hover,
+.action:hover{
+  background:#202d39;
+  border-color:#536474;
+  color:#f3ead6;
+}
+.btn:active,
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active,
+.desktop-actions a:active,
+.ca-hero-actions a:active{transform:translateY(1px)}
+.btn-gold,
+.ca-hero-actions a.btn-gold{
+  background:linear-gradient(180deg,#e0c37a,#c9a35a);
+  color:#2a2110;
+  border-color:#b7923e;
+}
+.btn-gold:hover,
+.ca-hero-actions a.btn-gold:hover{
+  background:linear-gradient(180deg,#e7cd8d,#d4b36a);
+  color:#211a0d;
+  border-color:#d4b36a;
+}
+.btn-ghost,
+.desktop-actions a,
+.ca-hero-actions a.btn-ghost{
+  background:#151f29;
+  border-color:#536474;
+  color:#e8edf2;
+}
+.btn-ghost:hover,
+.desktop-actions a:hover,
+.ca-hero-actions a.btn-ghost:hover{
+  background:#202d39;
+  border-color:#d0b66e;
+  color:#f3ead6;
+}
+.btn-navy{background:#17263b;color:#f3ead6;border-color:#334a67}
+.btn-navy:hover{background:#20334d;border-color:#536f92;color:#fff8e9}
+
+/* Navigation controls are links, not action buttons: keep them dark and crisp. */
+.ca-topnav a,
+.ca-nav a,
+nav.main a{
+  background:transparent;
+  border:1px solid transparent;
+  color:var(--ink-2);
+  box-shadow:none;
+}
+.ca-topnav a:hover,
+.ca-nav a:hover,
+nav.main a:hover{
+  background:var(--card);
+  border-color:var(--line);
+  color:var(--ink);
+}
+.ca-topnav a.on,
+.ca-topnav a.active{
+  background:#151f29;
+  border-color:#344250;
+  color:#f3ead6;
+  box-shadow:none;
+}
+.ca-nav a.on,
+.ca-nav a.active,
+nav.main a.on,
+nav.main a.active{
+  background:var(--navy);
+  border-color:#334a67;
+  color:#f6efe2;
+}
+
+/* Tabs/pills stay compact instead of inheriting browser/light button styles. */
+.pills a,
+.tabs a,
+.tabs button,
+.filter-chip,
+.tab,
+.ca-tabs button{
+  appearance:none;
+  background:#151f29;
+  border:1px solid #344250;
+  color:#b9c4ce;
+  border-radius:3px!important;
+  box-shadow:none;
+  cursor:pointer;
+}
+.pills a:hover,
+.tabs a:hover,
+.tabs button:hover,
+.filter-chip:hover,
+.tab:hover,
+.ca-tabs button:hover{background:#202d39;color:#f3ead6;border-color:#536474}
+.pills a.active,
+.pills a.on,
+.tabs a.active,
+.tabs a.on,
+.tabs button.active,
+.tabs button.on,
+.filter-chip.active,
+.tab.active,
+.ca-tabs button.on{background:#17263b;color:#f3ead6;border-color:#536f92}
+
 /* Theme hardening: shared components that previously ignored dark mode. */
 html.dark,
 html.dark body,
@@ -87,6 +232,8 @@ html.dark nav.main a{color:#dfe6ec}
 html.dark .ca-nav a:hover,
 html.dark .ca-topnav a:hover,
 html.dark nav.main a:hover{background:#1b2732}
+html.dark .ca-topnav a.on,
+html.dark .ca-topnav a.active{background:#151f29;color:#f3ead6;border-color:#344250}
 html.dark .ca-banner,
 html.dark .ca-ticker,
 html.dark .ticker{background:#151f29;color:#dfe6ec;border-color:#2b3743}
