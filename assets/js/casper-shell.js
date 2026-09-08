@@ -32,11 +32,18 @@
     });
   }
 
+  function syncThemeIcon() {
+    var icon = document.querySelector('[data-theme-icon]');
+    if (!icon) return;
+    var dark = document.documentElement.classList.contains('dark');
+    icon.textContent = dark ? 'light_mode' : 'dark_mode';
+  }
   function bindTheme() {
     var btn = document.getElementById('ca-theme-toggle');
     try {
       if (localStorage.getItem('casper-theme') === 'dark') document.documentElement.classList.add('dark');
     } catch (e) {}
+    syncThemeIcon();
     if (!btn || btn.dataset.bound === '1') return;
     btn.dataset.bound = '1';
     btn.addEventListener('click', function () {
@@ -44,6 +51,7 @@
       try {
         localStorage.setItem('casper-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
       } catch (e) {}
+      syncThemeIcon();
     });
   }
 
@@ -88,6 +96,41 @@
     });
   }
 
+  function ensureMaterialFont() {
+    if (document.querySelector('link[data-casper-icons]')) return;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.setAttribute('data-casper-icons', '1');
+    link.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap';
+    document.head.appendChild(link);
+  }
+  function iconForLabel(label) {
+    var map = {
+      Home: 'home', Futsal: 'sports_soccer', Football: 'stadium', Cricket: 'sports_cricket',
+      Archive: 'inventory_2', Sectors: 'grid_view', Governance: 'account_balance',
+      Join: 'person_add', API: 'api', Desk: 'space_dashboard', News: 'newspaper',
+      Competitions: 'emoji_events', Live: 'sensors', Results: 'scoreboard',
+      Players: 'groups', Teams: 'shield', Clubs: 'shield', Awards: 'military_tech',
+      Ranking: 'leaderboard', Tables: 'table_rows', Records: 'workspace_premium',
+      Statistics: 'insights', About: 'info', Leagues: 'account_tree'
+    };
+    return map[label] || '';
+  }
+  function upgradeIcons() {
+    ensureMaterialFont();
+    document.querySelectorAll('i.ca-ico').forEach(function (el) {
+      var parent = el.parentNode;
+      var label = (parent ? parent.textContent : '').replace(el.textContent || '', '').trim().split(/\s+/)[0];
+      var name = iconForLabel(label);
+      if (!name) return;
+      var span = document.createElement('span');
+      span.className = 'material-symbols-outlined ca-ico';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = name;
+      el.parentNode.replaceChild(span, el);
+    });
+  }
+
   function boot() {
     tickClock();
     if (!window.__CASPER_CLOCK__) window.__CASPER_CLOCK__ = setInterval(tickClock, 1000);
@@ -95,6 +138,7 @@
     bindTheme();
     bindRankTabs();
     highlightNav();
+    upgradeIcons();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
