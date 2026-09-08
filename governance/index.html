@@ -4,135 +4,154 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CASPER — Governance</title>
-<link rel="stylesheet" href="../assets/css/casper.css?v=20260907a">
-<link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260907a">
-<link rel="stylesheet" href="../assets/css/casper-sidebar.css?v=20260907a">
-<link rel="stylesheet" href="../assets/css/casper-plus.css?v=20260907a">
+<link rel="stylesheet" href="../assets/css/casper.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-sidebar.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-plus.css?v=20260908fit">
+<script>window.CASPER_PAGE={mode:"governance",sport:null,root:"../"};</script>
 </head>
-<body>
-<header>
-<div class="topbar">
-<div class="brand"><div class="crest">CA</div><div><h1>CASPER</h1><div class="sub">Competitive Athletics &amp; Sports Promotion</div><div class="legacy">One Association. Three Sports. Infinite Legacy.</div></div></div>
-<div class="quote">“Records are made.<br>Trophies are won.<br>Legends are remembered.”<br>– CASPER</div>
-<div class="clockbox"><div class="k">CASPER TIME</div><div class="t" id="casper-time">--:--:--</div><div class="d" id="casper-date"></div></div>
-</div>
-<div class="pills"><a href="../index.html">CASPER</a><a href="../sports/futsal.html">Futsal</a><a href="../sports/football.html">Football</a><a href="../sports/cricket.html">Cricket</a></div>
-<nav class="main"><ul>
-<li><a href="../index.html">Home</a></li>
-<li><a class="on" href="index.html">Governance</a></li>
-<li><a href="../sectors/index.html">Sectors</a></li>
-<li><a href="../join/index.html">Join</a></li>
-<li><a href="../api/index.html">API</a></li>
-</ul></nav>
-<div class="ticker"><div class="lbl">LATEST NEWS</div><div class="items">CASPER GOVERNANCE &amp; LAWS</div></div>
+<body class="ca-app">
+<header class="ca-top">
+  <a class="ca-brand" href="../index.html">
+    <div class="ca-crest">CA</div>
+    <div class="ca-wordmark"><b>CASPER</b><span>Competitive Athletics &amp; Sports Promotion</span></div>
+  </a>
+  <nav class="ca-topnav">
+    <a href="../index.html" data-nav="home">Home</a>
+    <a href="../index.html#competitions" data-nav="competitions">Competitions</a>
+    <a href="../index.html#players" data-nav="players">Players</a>
+    <a href="../index.html#teams" data-nav="clubs">Clubs</a>
+    <a href="../sectors/index.html" data-nav="sectors">Sectors</a>
+    <a href="../index.html#archive" data-nav="archive">Archive</a>
+    <a href="index.html" data-nav="governance" class="on">Governance</a>
+  </nav>
+  <div class="ca-tools">
+    <form class="ca-search" id="ca-search-form" action="#">
+      <input name="q" placeholder="Search players, clubs, competitions…" autocomplete="off">
+      <button type="submit" class="ca-iconbtn" aria-label="Search" style="width:26px;height:26px;border:0;background:transparent">⌕</button>
+    </form>
+    <button type="button" class="ca-iconbtn" id="ca-theme-toggle" title="Theme">☾</button>
+    <div class="ca-user"><div class="ca-avatar">A</div><b>Anish</b></div>
+  </div>
 </header>
+<div class="ca-shell">
+  <aside class="ca-side">
+    <div class="ca-side-id">
+      <div class="k">CASPER</div>
+      <div class="s">Three sports. Infinite legacy.</div>
+    </div>
+    <nav class="main ca-nav">
+      <ul>
+        <li><a href="../index.html" data-nav="home"><i class="ca-ico">⌂</i>Home</a></li>
+        <li><a href="../sports/futsal.html" data-nav="futsal"><i class="ca-ico">●</i>Futsal</a></li>
+        <li><a href="../sports/football.html" data-nav="football"><i class="ca-ico">○</i>Football</a></li>
+        <li><a href="../sports/cricket.html" data-nav="cricket"><i class="ca-ico">/</i>Cricket</a></li>
+      </ul>
+      <div class="ca-hr"></div>
+      <ul>
+        <li><a href="../index.html#archive" data-nav="archive"><i class="ca-ico">▦</i>Archive</a></li>
+        <li><a href="../sectors/index.html" data-nav="sectors"><i class="ca-ico">▣</i>Sectors</a></li>
+        <li><a href="index.html" data-nav="governance" class="on"><i class="ca-ico">☰</i>Governance</a></li>
+        <li><a href="../join/index.html" data-nav="join"><i class="ca-ico">＋</i>Join</a></li>
+        <li><a href="../api/index.html" data-nav="api"><i class="ca-ico">⧉</i>API</a></li>
+      </ul>
+    </nav>
+    <blockquote class="ca-quote">“Records are made. Trophies are won. Legends are remembered.”<cite>— CASPER</cite></blockquote>
+  </aside>
+  <div class="ca-work">
+    <main id="app">
+      <div class="desktop-page">
+        <section class="ca-hero desktop-hero">
+          <div class="desktop-kicker">CASPER MANAGEMENT</div>
+          <h2>Governance &amp; Laws</h2>
+          <p>CASPER is governed globally by its three-member Governance Body, while individual Sectors manage their own intra-Sector activity. Sectors operate freely within CASPER's laws and competition limits.</p>
+        </section>
 
-<main id="app">
-<div class="desktop-page">
-<section class="desktop-hero">
-<div class="desktop-kicker">CASPER MANAGEMENT</div>
-<h2>Governance &amp; Laws</h2>
-<p>CASPER is governed globally by its three-member Governance Body, while individual Sectors manage their own intra-Sector activity. Sectors operate freely within CASPER's laws and competition limits.</p>
-</section>
+        <section class="desktop-section">
+          <div class="desktop-section-title">THE CASPER GOVERNANCE BODY</div>
+          <div class="desktop-governance">
+            <div class="desktop-card"><b>Anish</b><span>FOUNDER</span><p>The Founder and one of the three members of the central CASPER Governance Body.</p></div>
+            <div class="desktop-card"><b>Vyom</b><span>NEUTRAL</span><p>The Neutral member of the central CASPER Governance Body.</p></div>
+            <div class="desktop-card"><b>Arjun</b><span>REPRESENTATIVE</span><p>The Representative member of the central CASPER Governance Body.</p></div>
+          </div>
+        </section>
 
-<section class="desktop-section">
-<div class="desktop-section-title">THE CASPER GOVERNANCE BODY</div>
-<div class="desktop-governance">
-<div class="desktop-card"><b>Anish</b><span>FOUNDER</span><p>The Founder and one of the three members of the central CASPER Governance Body.</p></div>
-<div class="desktop-card"><b>Vyom</b><span>NEUTRAL</span><p>The Neutral member of the central CASPER Governance Body.</p></div>
-<div class="desktop-card"><b>Arjun</b><span>REPRESENTATIVE</span><p>The Representative member of the central CASPER Governance Body.</p></div>
+        <section class="desktop-section">
+          <div class="desktop-section-title">DECISION MAKING</div>
+          <div class="desktop-grid3">
+            <div class="desktop-card"><h3>General Decisions</h3><p>Global matters are decided by the Founder, Neutral and Representative. A majority of the three is required.</p></div>
+            <div class="desktop-card"><h3>Major CASPER Changes</h3><p>Full rule changes, removing Sectors and other major structural changes are voted on by every CASPER Host together with the three Governance Body members. A majority is required.</p></div>
+            <div class="desktop-card"><h3>No Appeals</h3><p>CASPER Management fully checks the relevant information before acting. CASPER disciplinary decisions are final and cannot be appealed.</p></div>
+          </div>
+        </section>
+
+        <section class="desktop-section">
+          <div class="desktop-section-title">SECTOR GOVERNANCE</div>
+          <div class="desktop-grid3">
+            <div class="desktop-card"><h3>Sector Autonomy</h3><p>Sectors manage their own intra-Sector activity. The central Governance Body does not interfere with ordinary local matters.</p></div>
+            <div class="desktop-card"><h3>Sector Hosts</h3><p>Every Sector has a Host responsible for local activity and Sector competitions. Hosts must operate within CASPER's global laws.</p></div>
+            <div class="desktop-card"><h3>Global Authority</h3><p>The central three govern CASPER globally. Sector Hosts participate in votes on major structural changes.</p></div>
+          </div>
+        </section>
+
+        <section class="desktop-section">
+          <div class="desktop-section-title">COMPETITION GOVERNANCE</div>
+          <div class="desktop-doc">
+            <h3>Sport-Specific Competition Rules</h3>
+            <p>Competitions are designed and managed by Sectors. Football and Cricket are freeform within their limits; Futsal follows stricter seasonal requirements.</p>
+            <div class="ca-grid3">
+              <div class="ca-card"><h3>Futsal</h3><p><b>15</b> cups max / season</p><p>Strict: 1 League + 1 Cup + 1 Championship required every season.</p></div>
+              <div class="ca-card"><h3>Football</h3><p><b>5</b> cups max / season</p><p>Freeform: no League/Cup/Championship requirement.</p></div>
+              <div class="ca-card"><h3>Cricket</h3><p><b>4</b> cups max / season</p><p>Freeform: no League/Cup/Championship requirement.</p></div>
+            </div>
+            <p><strong>Futsal:</strong> the seasonal structure is mandatory. <strong>Football and Cricket:</strong> Sectors may freely choose their competition structure, including running one or multiple cups, provided they stay within the applicable seasonal limits and CASPER laws.</p>
+          </div>
+        </section>
+
+        <section class="desktop-section">
+          <div class="desktop-section-title">CASPER DISCIPLINE</div>
+          <div class="desktop-grid3">
+            <div class="desktop-card"><h3>Yellow Cards</h3><p>Yellow cards are recorded by CASPER Discipline. Accumulation may trigger a Black Card.</p></div>
+            <div class="desktop-card"><h3>Red Cards</h3><p><strong>Automatic 1-match ban.</strong> In Futsal, the opponent receives +1 goal and the player starts the next match 1 goal down. In Football, the player serves the next-match ban.</p></div>
+            <div class="desktop-card"><h3>Black Cards</h3><p><strong>Football:</strong> 3-match ban. <strong>Futsal:</strong> opponent receives +2 goals and the player starts each of the next 3 matches 1 goal down.</p></div>
+          </div>
+          <div class="desktop-card">
+            <h3>Black Card Triggers</h3>
+            <ul>
+              <li>3 Yellow Cards within 3 matches.</li>
+              <li>1 Red Card and 1 Yellow Card within 3 matches.</li>
+              <li>Direct Black Card for cheating.</li>
+              <li>Direct Black Card for brutal fouls.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="desktop-section">
+          <div class="desktop-section-title">MATCH OFFICIATING</div>
+          <div class="desktop-card"><h3>Referee Authority</h3><p>The referee officiates the match and applies the laws during play. CASPER Discipline manages the resulting disciplinary consequences under CASPER rules.</p></div>
+        </section>
+
+        <section class="desktop-section">
+          <div class="desktop-section-title">SPORT LAWS</div>
+          <div class="desktop-grid3">
+            <div class="desktop-card"><h3>Futsal</h3><ul><li>1v1.</li><li>Standard match: 2 minutes.</li><li>Finals: 3 minutes.</li><li>Field size: 3 × 1.5 m to 7 × 5 m.</li></ul></div>
+            <div class="desktop-card"><h3>Football</h3><ul><li>4v4 standard.</li><li>5v5 maximum.</li><li>Field size: 12 × 6 m to 40 × 20 m.</li></ul></div>
+            <div class="desktop-card"><h3>Cricket</h3><ul><li>1v1 or team-based.</li><li>Maximum team size: 4.</li><li>Playing area: 10 × 15 m to 50 × 30 m.</li><li>Boundaries required.</li></ul></div>
+          </div>
+        </section>
+
+        <section class="desktop-section">
+          <div class="desktop-section-title">GOVERNANCE PRINCIPLE</div>
+          <section class="ca-banner">
+            <h2>Sectors have freedom until CASPER's laws say otherwise.</h2>
+            <div class="nums"><div><b>3</b><span>Governors</span></div><div><b>3</b><span>Sports</span></div></div>
+          </section>
+        </section>
+      </div>
+    </main>
+    <footer class="ca-foot site"><div>© 2026 CASPER<br>All rights reserved.</div><div>Governance</div></footer>
+  </div>
 </div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">DECISION MAKING</div>
-<div class="desktop-grid3">
-<div class="desktop-card"><h3>General Decisions</h3><p>Global matters are decided by the Founder, Neutral and Representative. A majority of the three is required.</p></div>
-<div class="desktop-card"><h3>Major CASPER Changes</h3><p>Full rule changes, removing Sectors and other major structural changes are voted on by every CASPER Host together with the three Governance Body members. A majority is required.</p></div>
-<div class="desktop-card"><h3>No Appeals</h3><p>CASPER Management fully checks the relevant information before acting. CASPER disciplinary decisions are final and cannot be appealed.</p></div>
-</div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">SECTOR GOVERNANCE</div>
-<div class="desktop-grid3">
-<div class="desktop-card"><h3>Sector Autonomy</h3><p>Sectors manage their own intra-Sector activity. The central Governance Body does not interfere with ordinary local matters.</p></div>
-<div class="desktop-card"><h3>Sector Hosts</h3><p>Every Sector has a Host responsible for local activity and Sector competitions. Hosts must operate within CASPER's global laws.</p></div>
-<div class="desktop-card"><h3>Global Authority</h3><p>The central three govern CASPER globally. Sector Hosts participate in votes on major structural changes.</p></div>
-</div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">COMPETITION GOVERNANCE</div>
-<div class="desktop-doc">
-<h3>Sport-Specific Competition Rules</h3>
-<p>Competitions are designed and managed by Sectors. Football and Cricket are freeform within their limits; Futsal follows stricter seasonal requirements.</p>
-<div class="casper-table-wrap"><table class="casper-table">
-<thead><tr><th>Sport</th><th>Maximum Cups / Season</th><th>Season Structure</th></tr></thead>
-<tbody>
-<tr><td>Futsal</td><td>15</td><td><strong>Strict:</strong> 1 League + 1 Cup + 1 Championship required every season</td></tr>
-<tr><td>Football</td><td>5</td><td><strong>Freeform:</strong> no League/Cup/Championship requirement</td></tr>
-<tr><td>Cricket</td><td>4</td><td><strong>Freeform:</strong> no League/Cup/Championship requirement</td></tr>
-</tbody>
-</table></div>
-<p><strong>Futsal:</strong> the seasonal structure is mandatory. <strong>Football and Cricket:</strong> Sectors may freely choose their competition structure, including running one or multiple cups, provided they stay within the applicable seasonal limits and CASPER laws.</p>
-</div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">CASPER DISCIPLINE</div>
-<div class="desktop-grid3">
-<div class="desktop-card"><h3>Yellow Cards</h3><p>Yellow cards are recorded by CASPER Discipline. Accumulation may trigger a Black Card.</p></div>
-<div class="desktop-card"><h3>Red Cards</h3><p><strong>Automatic 1-match ban.</strong> In Futsal, the opponent receives +1 goal and the player starts the next match 1 goal down. In Football, the player serves the next-match ban.</p></div>
-<div class="desktop-card"><h3>Black Cards</h3><p><strong>Football:</strong> 3-match ban. <strong>Futsal:</strong> opponent receives +2 goals and the player starts each of the next 3 matches 1 goal down.</p></div>
-</div>
-<div class="desktop-card">
-<h3>Black Card Triggers</h3>
-<ul>
-<li>3 Yellow Cards within 3 matches.</li>
-<li>1 Red Card and 1 Yellow Card within 3 matches.</li>
-<li>Direct Black Card for cheating.</li>
-<li>Direct Black Card for brutal fouls.</li>
-</ul>
-</div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">MATCH OFFICIATING</div>
-<div class="desktop-card"><h3>Referee Authority</h3><p>The referee officiates the match and applies the laws during play. CASPER Discipline manages the resulting disciplinary consequences under CASPER rules.</p></div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">SPORT LAWS</div>
-<div class="desktop-grid3">
-<div class="desktop-card"><h3>Futsal</h3><ul><li>1v1.</li><li>Standard match: 2 minutes.</li><li>Finals: 3 minutes.</li><li>Field size: 3 × 1.5 m to 7 × 5 m.</li></ul></div>
-<div class="desktop-card"><h3>Football</h3><ul><li>4v4 standard.</li><li>5v5 maximum.</li><li>Field size: 12 × 6 m to 40 × 20 m.</li></ul></div>
-<div class="desktop-card"><h3>Cricket</h3><ul><li>1v1 or team-based.</li><li>Maximum team size: 4.</li><li>Playing area: 10 × 15 m to 50 × 30 m.</li><li>Boundaries required.</li></ul></div>
-</div>
-</section>
-
-<section class="desktop-section">
-<div class="desktop-section-title">GOVERNANCE PRINCIPLE</div>
-<div class="desktop-hero">
-<h2>Sectors have freedom until CASPER's laws say otherwise.</h2>
-<p>Local activity stays with the Sector Host. Global governance stays with the central three. Futsal follows strict seasonal competition requirements, while Football and Cricket remain freeform within their limits.</p>
-</div>
-</section>
-</div>
-</main>
-
-<footer class="site"><div>© 2026 CASPER — Competitive Athletics &amp; Sports Promotion</div><div>Governance</div></footer>
-<script>
-(function(){
-function tick(){
-var d=new Date();
-var t=document.getElementById('casper-time'),date=document.getElementById('casper-date');
-if(!t||!date)return;
-t.textContent=d.toLocaleTimeString('en-IN',{hour12:false});
-date.textContent=d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-}
-tick();setInterval(tick,1000);
-})();
-</script>
+<script src="../assets/js/casper-shell.js?v=20260908fit"></script>
 </body>
 </html>

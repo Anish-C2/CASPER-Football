@@ -1,3 +1,104 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CASPER — Sectors</title><link rel="stylesheet" href="../assets/css/casper.css?v=20260907a"><link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260907a"><link rel="stylesheet" href="../assets/css/casper-sidebar.css?v=20260907a"><link rel="stylesheet" href="../assets/css/casper-plus.css?v=20260907a"><style>
-.sector-intro{margin:18px 0 24px;padding:20px;border:1px solid #b7a77a;background:#f7f0df}.sector-intro h2{margin:0 0 8px;color:#17284b}.sector-intro p{margin:0;color:#26344b;line-height:1.65}.sector-rule{font-size:11px;color:#9a6f12;letter-spacing:1.4px;margin-top:14px;font-weight:700}.sector-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px}.sector-card{border:1px solid #b7a77a;background:#fffaf0;padding:20px;box-shadow:0 2px 0 rgba(23,40,75,.12)}.sector-head{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #d8c99e;padding-bottom:14px}.sector-code{font:700 12px Georgia,serif;letter-spacing:2px;color:#9a6f12}.sector-card h3{margin:4px 0 2px;font-size:25px;color:#17284b}.sector-type{color:#5d6675;text-transform:uppercase;font-size:11px;letter-spacing:1.5px}.sector-status{height:max-content;border:1px solid #75865d;background:#f1f5e9;color:#43532d;padding:5px 8px;font-size:10px;text-transform:uppercase;letter-spacing:1px}.sector-card p{color:#39465b;line-height:1.5;min-height:46px}.sector-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #d8c99e;border-bottom:1px solid #d8c99e;margin:16px 0}.sector-grid div{padding:12px 5px;text-align:center;border-right:1px solid #d8c99e}.sector-grid div:last-child{border-right:0}.sector-grid b{display:block;font-size:20px;color:#17284b}.sector-grid span{display:block;font-size:9px;color:#6b6f78;text-transform:uppercase;letter-spacing:1px;margin-top:3px}.sector-meta{font-size:12px;color:#505b6d;line-height:1.9}.sector-meta b{color:#17284b}.sector-open{display:inline-block;margin-top:16px;padding:8px 12px;border:1px solid #9a6f12;background:#f5ead0;color:#7a570c;text-decoration:none;font-size:11px;text-transform:uppercase;letter-spacing:1px}.sector-open:hover{background:#ead9ae}.sector-empty{padding:24px;border:1px dashed #b7a77a;color:#626b78;background:#fffaf0}
-</style><script>window.CASPER_PAGE={mode:'sectors',root:'../'};</script></head><body><header><div class="topbar"><div class="brand"><div class="crest">CA</div><div><h1>CASPER</h1><div class="sub">Competitive Athletics & Sports Promotion</div><div class="legacy">One Association. Three Sports. Infinite Legacy.</div></div></div><div class="quote">“Records are made.<br>Trophies are won.<br>Legends are remembered.”<br>– CASPER</div></div><div class="pills"><a href="../index.html">CASPER</a><a href="../sports/futsal.html">Futsal</a><a href="../sports/football.html">Football</a><a href="../sports/cricket.html">Cricket</a></div><nav class="main"><ul><li><a href="../index.html">Home</a></li><li><a class="on" href="index.html">Sectors</a></li><li><a href="../join/index.html">Join</a></li><li><a href="../api/index.html">API</a></li></ul></nav></header><main id="app"><div class="desktop-page"><div class="desktop-hero"><div><div class="desktop-kicker">CASPER GLOBAL OPERATIONS</div><h2>SECTORS</h2><p>The local operating layer of CASPER. Players may register in two sectors maximum.</p></div></div><div class="sector-intro"><h2>ONE CASPER. MANY OPERATING AREAS.</h2><p>A Sector is a physical location where CASPER operates. It may be a school, apartment, community, city or another local area, and sectors can exist anywhere in the world. Every sector can run its own players, clubs, leagues, competitions and seasons while remaining part of CASPER.</p><div class="sector-rule">SECTOR ≠ COUNTRY &nbsp; • &nbsp; SECTOR = LOCAL CASPER ECOSYSTEM &nbsp; • &nbsp; MAX 2 SECTORS PER PLAYER</div><p style="margin:14px 0 0"><a class="sector-open" href="../join/index.html">How to join as a Sector Host</a></p></div><div id="sector-list" class="sector-list"></div></div></main><footer class="site"><div>© 2026 CASPER — Competitive Athletics & Sports Promotion</div><div>Global sector registry</div></footer><script src="../assets/js/casper-sectors.js?v=20260907a"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CASPER — Sectors</title>
+<link rel="stylesheet" href="../assets/css/casper.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-sidebar.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-plus.css?v=20260908fit">
+<style>
+.sector-intro{margin:12px 0 16px}
+.sector-rule{font-size:11px;color:var(--gold-deep);letter-spacing:.8px;margin-top:10px;font-weight:700}
+.sector-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.sector-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.sector-head{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.sector-code{font:700 11px var(--sans);letter-spacing:1.4px;color:var(--gold-deep)}
+.sector-card h3{margin:4px 0 2px;font:700 22px var(--serif);color:var(--ink)}
+.sector-type{color:var(--muted);text-transform:uppercase;font-size:11px;letter-spacing:1.2px}
+.sector-status{height:max-content;border-radius:999px;background:var(--navy);color:#f3ead6;padding:4px 8px;font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.sector-card p{color:var(--ink-2);line-height:1.5;min-height:40px}
+.sector-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:14px 0}
+.sector-grid div{padding:10px 4px;text-align:center;border-right:1px solid var(--line)}
+.sector-grid div:last-child{border-right:0}
+.sector-grid b{display:block;font:700 18px var(--serif)}
+.sector-grid span{display:block;font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+.sector-meta{font-size:12px;color:var(--muted);line-height:1.8}
+.sector-meta b{color:var(--ink)}
+.sector-empty{padding:24px;border:1px dashed var(--line-2);color:var(--muted);background:var(--card);border-radius:12px}
+</style>
+<script>window.CASPER_PAGE={mode:"sectors",sport:null,root:"../"};</script>
+</head>
+<body class="ca-app">
+<header class="ca-top">
+  <a class="ca-brand" href="../index.html">
+    <div class="ca-crest">CA</div>
+    <div class="ca-wordmark"><b>CASPER</b><span>Competitive Athletics &amp; Sports Promotion</span></div>
+  </a>
+  <nav class="ca-topnav">
+    <a href="../index.html" data-nav="home">Home</a>
+    <a href="../index.html#competitions" data-nav="competitions">Competitions</a>
+    <a href="../index.html#players" data-nav="players">Players</a>
+    <a href="../index.html#teams" data-nav="clubs">Clubs</a>
+    <a href="index.html" data-nav="sectors" class="on">Sectors</a>
+    <a href="../index.html#archive" data-nav="archive">Archive</a>
+    <a href="../governance/index.html" data-nav="governance">Governance</a>
+  </nav>
+  <div class="ca-tools">
+    <form class="ca-search" id="ca-search-form" action="#">
+      <input name="q" placeholder="Search players, clubs, competitions…" autocomplete="off">
+      <button type="submit" class="ca-iconbtn" aria-label="Search" style="width:26px;height:26px;border:0;background:transparent">⌕</button>
+    </form>
+    <button type="button" class="ca-iconbtn" id="ca-theme-toggle" title="Theme">☾</button>
+    <div class="ca-user"><div class="ca-avatar">A</div><b>Anish</b></div>
+  </div>
+</header>
+<div class="ca-shell">
+  <aside class="ca-side">
+    <div class="ca-side-id">
+      <div class="k">CASPER</div>
+      <div class="s">Three sports. Infinite legacy.</div>
+    </div>
+    <nav class="main ca-nav">
+      <ul>
+        <li><a href="../index.html" data-nav="home"><i class="ca-ico">⌂</i>Home</a></li>
+        <li><a href="../sports/futsal.html" data-nav="futsal"><i class="ca-ico">●</i>Futsal</a></li>
+        <li><a href="../sports/football.html" data-nav="football"><i class="ca-ico">○</i>Football</a></li>
+        <li><a href="../sports/cricket.html" data-nav="cricket"><i class="ca-ico">/</i>Cricket</a></li>
+      </ul>
+      <div class="ca-hr"></div>
+      <ul>
+        <li><a href="../index.html#archive" data-nav="archive"><i class="ca-ico">▦</i>Archive</a></li>
+        <li><a href="index.html" data-nav="sectors" class="on"><i class="ca-ico">▣</i>Sectors</a></li>
+        <li><a href="../governance/index.html" data-nav="governance"><i class="ca-ico">☰</i>Governance</a></li>
+        <li><a href="../join/index.html" data-nav="join"><i class="ca-ico">＋</i>Join</a></li>
+        <li><a href="../api/index.html" data-nav="api"><i class="ca-ico">⧉</i>API</a></li>
+      </ul>
+    </nav>
+    <blockquote class="ca-quote">“Records are made. Trophies are won. Legends are remembered.”<cite>— CASPER</cite></blockquote>
+  </aside>
+  <div class="ca-work">
+    <main id="app">
+      <div class="desktop-page">
+        <section class="ca-hero desktop-hero">
+          <div class="desktop-kicker">CASPER GLOBAL OPERATIONS</div>
+          <h2>Sectors</h2>
+          <p>The local operating layer of CASPER. Players may register in two sectors maximum.</p>
+        </section>
+        <div class="ca-card sector-intro">
+          <h3>One CASPER. Many operating areas.</h3>
+          <p>A Sector is a physical location where CASPER operates. It may be a school, apartment, community, city or another local area, and sectors can exist anywhere in the world. Every sector can run its own players, clubs, leagues, competitions and seasons while remaining part of CASPER.</p>
+          <div class="sector-rule">SECTOR ≠ COUNTRY &nbsp; • &nbsp; SECTOR = LOCAL CASPER ECOSYSTEM &nbsp; • &nbsp; MAX 2 SECTORS PER PLAYER</div>
+          <p style="margin:14px 0 0"><a class="sector-open" href="../join/index.html">How to join as a Sector Host</a></p>
+        </div>
+        <div id="sector-list" class="sector-list"></div>
+      </div>
+    </main>
+    <footer class="ca-foot site"><div>© 2026 CASPER<br>All rights reserved.</div><div>Global sector registry</div></footer>
+  </div>
+</div>
+<script src="../assets/js/casper-shell.js?v=20260908fit"></script>
+<script src="../assets/js/casper-sectors.js?v=20260908fit"></script>
+</body>
+</html>

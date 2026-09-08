@@ -1,25 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CASPER Data API</title>
-<link rel="stylesheet" href="../assets/css/casper.css">
-<style>main{max-width:1100px;margin:12px auto;padding:0 10px}.api-hero{background:#fffdf6;border:1px solid #b9a77d;padding:14px}.api-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px}.api-card{background:#fffdf6;border:1px solid #b9a77d;padding:10px}.api-card h2{margin:0 0 7px;color:#142443;font:700 16px Georgia}.endpoint{display:block;background:#f1dfb7;border:1px solid #d4c4a0;padding:6px;margin:5px 0;overflow:auto}.note{color:#6b6256;font-size:11px}pre{white-space:pre-wrap;overflow:auto}</style>
+<link rel="stylesheet" href="../assets/css/casper.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-sidebar.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-plus.css?v=20260908fit">
+<script>window.CASPER_PAGE={mode:"api",sport:null,root:"../"};</script>
 </head>
-<body>
-<header><div class="topbar"><div class="brand"><div class="crest">CA</div><div><h1>CASPER DATA API</h1><div class="sub">Competition Archive & Historical Record System</div><div class="legacy">Raw CSN. Parsed data. Filtered data. One source.</div></div></div></div></header>
-<main>
-<section class="api-hero"><h2>Public data interface — v1</h2><p>The canonical archive remains CSN. The API client exposes raw CSN plus parsed competitions, matches, players, teams, awards and rankings, with sport/season/team/player/stage filters.</p><p class="note">Static-host compatible: no database or server runtime is required.</p></section>
-<div class="api-grid">
-<div class="api-card"><h2>Raw CSN</h2><code class="endpoint">CASPER_API.rawCSN('futsal','2026A')</code><p>Returns the original CSN text exactly as stored in the archive.</p></div>
-<div class="api-card"><h2>Filtered CSN</h2><code class="endpoint">CASPER_API.filterCSN({sport:'futsal',season:'2026A',competition:'Finale'})</code><p>Returns matching CSN tournament blocks while preserving the source notation.</p></div>
-<div class="api-card"><h2>All data</h2><code class="endpoint">CASPER_API.all({sport:'football',season:'2026A'})</code><p>Returns competitions, matches, teams, players, awards and rankings together.</p></div>
-<div class="api-card"><h2>Individual resources</h2><code class="endpoint">matches / players / teams / competitions / awards / rankings</code><p>Every resource accepts the same filter object.</p></div>
+<body class="ca-app">
+<header class="ca-top">
+  <a class="ca-brand" href="../index.html">
+    <div class="ca-crest">CA</div>
+    <div class="ca-wordmark"><b>CASPER</b><span>Competitive Athletics &amp; Sports Promotion</span></div>
+  </a>
+  <nav class="ca-topnav">
+    <a href="../index.html" data-nav="home">Home</a>
+    <a href="../index.html#competitions" data-nav="competitions">Competitions</a>
+    <a href="../index.html#players" data-nav="players">Players</a>
+    <a href="../index.html#teams" data-nav="clubs">Clubs</a>
+    <a href="../sectors/index.html" data-nav="sectors">Sectors</a>
+    <a href="../index.html#archive" data-nav="archive">Archive</a>
+    <a href="../governance/index.html" data-nav="governance">Governance</a>
+  </nav>
+  <div class="ca-tools">
+    <form class="ca-search" id="ca-search-form" action="#">
+      <input name="q" placeholder="Search players, clubs, competitions…" autocomplete="off">
+      <button type="submit" class="ca-iconbtn" aria-label="Search" style="width:26px;height:26px;border:0;background:transparent">⌕</button>
+    </form>
+    <button type="button" class="ca-iconbtn" id="ca-theme-toggle" title="Theme">☾</button>
+    <div class="ca-user"><div class="ca-avatar">A</div><b>Anish</b></div>
+  </div>
+</header>
+<div class="ca-shell">
+  <aside class="ca-side">
+    <div class="ca-side-id">
+      <div class="k">CASPER</div>
+      <div class="s">Three sports. Infinite legacy.</div>
+    </div>
+    <nav class="main ca-nav">
+      <ul>
+        <li><a href="../index.html" data-nav="home"><i class="ca-ico">⌂</i>Home</a></li>
+        <li><a href="../sports/futsal.html" data-nav="futsal"><i class="ca-ico">●</i>Futsal</a></li>
+        <li><a href="../sports/football.html" data-nav="football"><i class="ca-ico">○</i>Football</a></li>
+        <li><a href="../sports/cricket.html" data-nav="cricket"><i class="ca-ico">/</i>Cricket</a></li>
+      </ul>
+      <div class="ca-hr"></div>
+      <ul>
+        <li><a href="../index.html#archive" data-nav="archive"><i class="ca-ico">▦</i>Archive</a></li>
+        <li><a href="../sectors/index.html" data-nav="sectors"><i class="ca-ico">▣</i>Sectors</a></li>
+        <li><a href="../governance/index.html" data-nav="governance"><i class="ca-ico">☰</i>Governance</a></li>
+        <li><a href="../join/index.html" data-nav="join"><i class="ca-ico">＋</i>Join</a></li>
+        <li><a href="index.html" data-nav="api" class="on"><i class="ca-ico">⧉</i>API</a></li>
+      </ul>
+    </nav>
+    <blockquote class="ca-quote">“Records are made. Trophies are won. Legends are remembered.”<cite>— CASPER</cite></blockquote>
+  </aside>
+  <div class="ca-work">
+    <main id="app">
+      <div class="desktop-page">
+        <section class="ca-hero desktop-hero">
+          <div class="desktop-kicker">CASPER DATA API</div>
+          <h2>Public data interface</h2>
+          <p>Raw CSN. Parsed data. Filtered data. One source. Static-host compatible — no database or server runtime is required.</p>
+        </section>
+        <div class="ca-card" style="margin-bottom:12px">
+          <h3>Public data interface — v1</h3>
+          <p>The canonical archive remains CSN. The API client exposes raw CSN plus parsed competitions, matches, players, teams, awards and rankings, with sport/season/team/player/stage filters.</p>
+        </div>
+        <div class="ca-grid4">
+          <div class="ca-card api-card"><h3>Raw CSN</h3><code class="endpoint">CASPER_API.rawCSN('futsal','2026A')</code><p>Returns the original CSN text exactly as stored in the archive.</p></div>
+          <div class="ca-card api-card"><h3>Filtered CSN</h3><code class="endpoint">CASPER_API.filterCSN({sport:'futsal',season:'2026A',competition:'Finale'})</code><p>Returns matching CSN tournament blocks while preserving the source notation.</p></div>
+          <div class="ca-card api-card"><h3>All data</h3><code class="endpoint">CASPER_API.all({sport:'football',season:'2026A'})</code><p>Returns competitions, matches, teams, players, awards and rankings together.</p></div>
+          <div class="ca-card api-card"><h3>Individual resources</h3><code class="endpoint">matches / players / teams / competitions / awards / rankings</code><p>Every resource accepts the same filter object.</p></div>
+        </div>
+        <div class="ca-card" style="margin-top:12px"><h3>Filters</h3><p><code>sport</code> · <code>season</code> · <code>competition</code> · <code>competitionId</code> · <code>player</code> · <code>team</code> · <code>stage</code></p></div>
+        <div class="ca-card" style="margin-top:12px"><h3>Load it</h3><pre class="desktop-code">&lt;script src="assets/casper-core.js"&gt;&lt;/script&gt;
+&lt;script src="api/v1/casper-api.js"&gt;&lt;/script&gt;</pre></div>
+      </div>
+    </main>
+    <footer class="ca-foot site"><div>© 2026 CASPER<br>All rights reserved.</div><div>Data API</div></footer>
+  </div>
 </div>
-<section class="api-card" style="margin-top:8px"><h2>Filters</h2><p><code>sport</code> · <code>season</code> · <code>competition</code> · <code>competitionId</code> · <code>player</code> · <code>team</code> · <code>stage</code></p></section>
-<section class="api-card" style="margin-top:8px"><h2>Load it</h2><pre><script src="assets/casper-core.js"></script>
-<script src="api/v1/casper-api.js"></script></pre></section>
-<p><a href="../index.html">← Back to CASPER</a> · <a href="../sectors/index.html">Sectors</a> · <a href="../join/index.html">How to Join</a> · <a href="v1/index.json">API manifest</a></p>
-</main>
-</body></html>
+<script src="../assets/js/casper-shell.js?v=20260908fit"></script>
+</body>
+</html>
