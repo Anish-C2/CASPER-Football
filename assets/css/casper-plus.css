@@ -1,4 +1,4 @@
-/* Type overlay so every page that already loads plus.css picks up Inter Tight + IBM Plex Mono. */
+/* Global CASPER typography: Inter Tight + IBM Plex Mono on every page. */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap');
 :root{
   --sans:"Inter Tight", "Segoe UI", sans-serif;
@@ -7,6 +7,8 @@
   --radius:4px;
 }
 html,body{font-family:var(--sans)}
+html,body,button,input,textarea,select{font-family:var(--sans)}
+code,pre,kbd,samp,.mono,.desktop-code{font-family:var(--mono)!important}
 html.dark body{background:#101820}
 
 /* CASPER visual system: crisp federation panels, minimal rounding. */
