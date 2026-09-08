@@ -4,260 +4,204 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CASPER — How to Join</title>
-<link rel="stylesheet" href="../assets/css/casper.css?v=20260903j">
-<link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260903j">
+<link rel="stylesheet" href="../assets/css/casper.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-desktop.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-sidebar.css?v=20260908fit">
+<link rel="stylesheet" href="../assets/css/casper-plus.css?v=20260908fit">
 <style>
-html,body{overflow-x:hidden;max-width:100%}
-.join-note{margin:0 0 12px;padding:14px 16px;border:1px solid #b9a77d;background:#f7f0df}
-.join-note h3{margin:0 0 6px;font:700 14px Georgia,serif;color:#142443}
-.join-note p{margin:0;color:#39465b;line-height:1.6}
-.join-warn{margin-top:10px;font:700 10px Consolas,monospace;letter-spacing:1px;color:#9a6f12;text-transform:uppercase}
+.join-note{margin:0 0 12px}
+.join-warn{margin-top:10px;font:700 10px var(--sans);letter-spacing:1px;color:var(--gold-deep);text-transform:uppercase}
 .join-steps{display:grid;gap:10px}
-.join-step{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;border:1px solid #b9a77d;background:#fffaf0;padding:14px 16px}
-.join-num{width:44px;height:44px;display:grid;place-items:center;background:#142443;color:#f1df9e;border:2px solid #b58c27;font:700 16px Georgia,serif}
-.join-step h3{margin:0 0 6px;font:700 15px Georgia,serif;color:#142443}
-.join-step p,.join-step li{margin:0 0 6px;color:#39465b;line-height:1.55}
+.join-step{display:grid;grid-template-columns:54px minmax(0,1fr);gap:12px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px}
+.join-num{width:44px;height:44px;display:grid;place-items:center;background:var(--navy);color:#f1df9e;border-radius:10px;font:700 16px var(--serif)}
+.join-step h3{margin:0 0 6px}
+.join-step p,.join-step li{margin:0 0 6px;color:var(--ink-2);line-height:1.55}
 .join-step ul{margin:6px 0 0;padding-left:18px}
-.join-example{margin-top:8px;border:1px solid #d8c99e;background:#fffdf6;padding:10px 12px}
-.join-example .k{font:700 9px Consolas,monospace;letter-spacing:1.2px;color:#9a6f12;text-transform:uppercase;margin-bottom:4px}
-.join-weekly{border:2px solid #b58c27;background:#142443;color:#fff;padding:18px;margin:12px 0}
-.join-weekly .desktop-kicker{color:#d6c485}
-.join-weekly h2{margin:4px 0 8px;font:700 22px Georgia,serif;color:#f1df9e}
-.join-weekly p{margin:0;color:#f5f1e8;line-height:1.6;max-width:820px}
+.join-example{margin-top:8px;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:10px 12px}
+.join-example .k{font:700 9px var(--sans);letter-spacing:1.2px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:4px}
 .join-timeline{display:grid;gap:0;margin:8px 0 4px}
 .join-node{display:grid;grid-template-columns:18px minmax(0,1fr);gap:12px;align-items:stretch}
 .join-rail{display:flex;flex-direction:column;align-items:center}
-.join-dot{width:12px;height:12px;border-radius:50%;background:#142443;border:2px solid #b58c27;margin-top:8px;flex:0 0 auto}
-.join-line{width:1px;flex:1;background:#b9a77d;min-height:16px}
+.join-dot{width:12px;height:12px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);margin-top:8px;flex:0 0 auto}
+.join-line{width:1px;flex:1;background:var(--line);min-height:16px}
 .join-node:last-child .join-line{display:none}
-.join-pill{border:1px solid #b9a77d;background:#fffaf0;padding:8px 12px;margin-bottom:8px}
-.join-pill b{display:block;font:700 12px Georgia,serif;color:#142443}
-.join-pill span{font:10px Consolas,monospace;color:#6b6256}
-.join-cta{border:1px solid #b9a77d;background:#f7f0df;padding:18px}
-.join-cta h2{margin:0 0 8px;font:700 20px Georgia,serif;color:#142443}
-.join-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.join-links a{display:inline-block;border:1px solid #9a6f12;background:#f5ead0;color:#7a570c;text-decoration:none;padding:8px 12px;font:700 11px Consolas,monospace;text-transform:uppercase;letter-spacing:1px}
-.join-links a:hover{background:#ead9ae;text-decoration:none}
-.join-links a.primary{background:#142443;border-color:#142443;color:#f1df9e}
-.join-links a.primary:hover{background:#1d335c;color:#fff}
+.join-pill{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;margin-bottom:8px}
+.join-pill b{display:block;font:700 12px var(--sans)}
+.join-pill span{font:11px var(--sans);color:var(--muted)}
 .roster{width:100%;margin-top:8px}
-.roster th{white-space:nowrap}
-@media(max-width:700px){
-  .join-step{grid-template-columns:1fr}
-  .join-num{width:36px;height:36px;font-size:14px}
-}
+@media(max-width:700px){.join-step{grid-template-columns:1fr}}
 </style>
-<script>window.CASPER_PAGE={mode:'join',root:'../'};</script>
+<script>window.CASPER_PAGE={mode:"join",sport:null,root:"../"};</script>
 </head>
-<body>
-<header>
-  <div class="topbar">
-    <div class="brand">
-      <div class="crest">CA</div>
-      <div>
-        <h1>CASPER</h1>
-        <div class="sub">Competitive Athletics & Sports Promotion</div>
-        <div class="legacy">One Association. Three Sports. Infinite Legacy.</div>
-      </div>
-    </div>
-    <div class="quote">“Records are made.<br>Trophies are won.<br>Legends are remembered.”<br>– CASPER</div>
-  </div>
-  <div class="pills">
-    <a href="../index.html">CASPER</a>
-    <a href="../sports/futsal.html">Futsal</a>
-    <a href="../sports/football.html">Football</a>
-    <a href="../sports/cricket.html">Cricket</a>
-  </div>
-  <nav class="main">
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../sectors/index.html">Sectors</a></li>
-      <li><a class="on" href="index.html">Join</a></li>
-      <li><a href="../api/index.html">API</a></li>
-    </ul>
+<body class="ca-app">
+<header class="ca-top">
+  <a class="ca-brand" href="../index.html">
+    <div class="ca-crest">CA</div>
+    <div class="ca-wordmark"><b>CASPER</b><span>Competitive Athletics &amp; Sports Promotion</span></div>
+  </a>
+  <nav class="ca-topnav">
+    <a href="../index.html" data-nav="home">Home</a>
+    <a href="../index.html#competitions" data-nav="competitions">Competitions</a>
+    <a href="../index.html#players" data-nav="players">Players</a>
+    <a href="../index.html#teams" data-nav="clubs">Clubs</a>
+    <a href="../sectors/index.html" data-nav="sectors">Sectors</a>
+    <a href="../index.html#archive" data-nav="archive">Archive</a>
+    <a href="../governance/index.html" data-nav="governance">Governance</a>
   </nav>
-</header>
-<main id="app">
-  <div class="desktop-page">
-    <div class="desktop-hero">
-      <div>
-        <div class="desktop-kicker">CASPER SECTOR HOST APPLICATION</div>
-        <h2>HOW TO JOIN CASPER</h2>
-        <p>Start a Sector. Host the competition. Become part of CASPER.</p>
-        <div class="desktop-actions">
-          <a href="../sectors/index.html">View Sectors</a>
-          <a href="#apply">How to apply</a>
-          <a href="#ready">Open application</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="join-note">
-      <h3>CASPER OPERATES THROUGH SECTORS</h3>
-      <p>CASPER — Competition Archive & Historical Record System — is a distributed, multi-sport competition system. It is operated through geographic Sectors. Each Sector is a remotely operated CASPER location maintained by a Host who runs competitions and submits data back to CASPER HQ.</p>
-    </div>
-
-    <div class="desktop-section">
-      <div class="desktop-section-title">WHAT IS A SECTOR?</div>
-      <div class="desktop-grid2">
-        <div class="desktop-card">
-          <h3>A geographic operating unit</h3>
-          <p>A Sector is a geographic operating unit of CASPER. It is operated remotely from CASPER HQ by a Host who runs competitions and regularly submits competition data to CASPER.</p>
-          <p>Sectors can operate anywhere. There is no requirement to publish a street address or an exact physical location.</p>
-        </div>
-        <div class="desktop-card">
-          <h3>The name is not the address</h3>
-          <p>A Sector’s name is not necessarily its exact geographic location. The Host may combine a location or context with another name or identifier.</p>
-          <div class="join-example">
-            <div class="k">Example sector name</div>
-            <b>Sector 1 — School</b>
-          </div>
-          <div class="join-warn">Do not publish a street address, house number, venue address, or coordinates.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="desktop-section" id="apply">
-      <div class="desktop-section-title">HOW TO APPLY</div>
-      <div class="join-steps">
-        <div class="join-step">
-          <div class="join-num">1</div>
-          <div>
-            <h3>Contact CASPER</h3>
-            <p>Create a clear Sector application through either GitHub Issues or GitHub Discussions.</p>
-            <div class="join-links">
-              <a class="primary" href="https://github.com/Anish-C2/CASPER/issues/new">Open a GitHub Issue</a>
-              <a href="https://github.com/Anish-C2/CASPER/discussions">Open a Discussion</a>
-            </div>
-          </div>
-        </div>
-        <div class="join-step">
-          <div class="join-num">2</div>
-          <div>
-            <h3>Identify the Host</h3>
-            <p>Provide a first name or nickname as the Host. That person is the remote operator of the Sector.</p>
-            <div class="join-example">
-              <div class="k">Example</div>
-              Host: Alex
-            </div>
-          </div>
-        </div>
-        <div class="join-step">
-          <div class="join-num">3</div>
-          <div>
-            <h3>Name your Sector</h3>
-            <p>Provide the proposed Sector name. Keep it simple and safe. Identify the Sector without giving an exact address.</p>
-            <div class="join-example">
-              <div class="k">Example</div>
-              Sector 1 — School
-            </div>
-            <div class="join-warn">Street addresses, house numbers, exact venue addresses, and coordinates are not required and should not be included.</div>
-          </div>
-        </div>
-        <div class="join-step">
-          <div class="join-num">4</div>
-          <div>
-            <h3>Provide the player roster</h3>
-            <p>List every player who will participate in the Sector. For each player include only:</p>
-            <ul>
-              <li>Nickname</li>
-              <li>Preferred foot</li>
-              <li>Nationality</li>
-              <li>Birth year (year only, such as 2000 — not a full birthday)</li>
-              <li>Two clubs, including the names of both clubs</li>
-            </ul>
-            <div class="join-example">
-              <div class="k">Example roster card</div>
-              <table class="roster">
-                <thead>
-                  <tr>
-                    <th>Player</th>
-                    <th>Preferred foot</th>
-                    <th>Nationality</th>
-                    <th>Birth year</th>
-                    <th>Clubs</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Alex</td>
-                    <td>Right</td>
-                    <td>USA</td>
-                    <td>2000</td>
-                    <td>1. Newland United<br>2. Park FC</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="join-step">
-          <div class="join-num">5</div>
-          <div>
-            <h3>CASPER review & approval</h3>
-            <p>CASPER reviews the submitted Sector application. A Sector becomes officially recognized only after approval. Approval is not automatic.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="desktop-section">
-      <div class="desktop-section-title">AFTER APPROVAL</div>
-      <div class="desktop-grid3">
-        <div class="desktop-card">
-          <h3>Host competitions</h3>
-          <p>The Host must regularly host and run tournaments and competitions in the Sector.</p>
-        </div>
-        <div class="desktop-card">
-          <h3>Stay active</h3>
-          <p>Keep competition activity going. A Sector is expected to remain active after it is recognized.</p>
-        </div>
-        <div class="desktop-card">
-          <h3>Send data weekly</h3>
-          <p>Submit competition data to CASPER every week so the central archive stays current.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="join-weekly" id="weekly">
-      <div class="desktop-kicker">HOST REQUIREMENT</div>
-      <h2>WEEKLY DATA SUBMISSION</h2>
-      <p>Hosts must send their competition data to CASPER every week. That submission keeps the central CASPER archive — statistics, results, records, and historical data — up to date.</p>
-    </div>
-
-    <div class="desktop-section">
-      <div class="desktop-section-title">THE PROCESS</div>
-      <div class="join-timeline">
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>CONTACT CASPER</b><span>Issue or Discussion</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>HOST INFORMATION</b><span>First name or nickname</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>SECTOR NAME</b><span>Safe identifier — not a street address</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>PLAYER ROSTER</b><span>Nickname, foot, nationality, birth year, two clubs</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>CASPER REVIEW</b><span>Application is examined</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>APPROVAL</b><span>Official recognition only after approval</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>HOST COMPETITIONS</b><span>Keep the Sector active</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>SUBMIT DATA WEEKLY</b><span>Update the central archive</span></div></div>
-        <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>WELCOME TO CASPER</b><span>The Sector is part of the system</span></div></div>
-      </div>
-    </div>
-
-    <div class="desktop-section" id="ready">
-      <div class="desktop-section-title">READY TO APPLY?</div>
-      <div class="join-cta">
-        <h2>Open a Sector application</h2>
-        <p>Send a clear application to CASPER with the Host name, proposed Sector name, and full player roster. Use GitHub Issues or GitHub Discussions.</p>
-        <div class="join-links">
-          <a class="primary" href="https://github.com/Anish-C2/CASPER/issues/new">Apply via GitHub Issues</a>
-          <a href="https://github.com/Anish-C2/CASPER/discussions">Apply via Discussions</a>
-          <a href="../sectors/index.html">Browse existing Sectors</a>
-          <a href="../index.html">Return to CASPER</a>
-        </div>
-      </div>
-    </div>
+  <div class="ca-tools">
+    <form class="ca-search" id="ca-search-form" action="#">
+      <input name="q" placeholder="Search players, clubs, competitions…" autocomplete="off">
+      <button type="submit" class="ca-iconbtn" aria-label="Search" style="width:26px;height:26px;border:0;background:transparent">⌕</button>
+    </form>
+    <button type="button" class="ca-iconbtn" id="ca-theme-toggle" title="Theme">☾</button>
+    <div class="ca-user"><div class="ca-avatar">A</div><b>Anish</b></div>
   </div>
-</main>
-<footer class="site">
-  <div>© 2026 CASPER — Competitive Athletics & Sports Promotion</div>
-  <div>Sector Host application</div>
-</footer>
+</header>
+<div class="ca-shell">
+  <aside class="ca-side">
+    <div class="ca-side-id">
+      <div class="k">CASPER</div>
+      <div class="s">Three sports. Infinite legacy.</div>
+    </div>
+    <nav class="main ca-nav">
+      <ul>
+        <li><a href="../index.html" data-nav="home"><i class="ca-ico">⌂</i>Home</a></li>
+        <li><a href="../sports/futsal.html" data-nav="futsal"><i class="ca-ico">●</i>Futsal</a></li>
+        <li><a href="../sports/football.html" data-nav="football"><i class="ca-ico">○</i>Football</a></li>
+        <li><a href="../sports/cricket.html" data-nav="cricket"><i class="ca-ico">/</i>Cricket</a></li>
+      </ul>
+      <div class="ca-hr"></div>
+      <ul>
+        <li><a href="../index.html#archive" data-nav="archive"><i class="ca-ico">▦</i>Archive</a></li>
+        <li><a href="../sectors/index.html" data-nav="sectors"><i class="ca-ico">▣</i>Sectors</a></li>
+        <li><a href="../governance/index.html" data-nav="governance"><i class="ca-ico">☰</i>Governance</a></li>
+        <li><a href="index.html" data-nav="join" class="on"><i class="ca-ico">＋</i>Join</a></li>
+        <li><a href="../api/index.html" data-nav="api"><i class="ca-ico">⧉</i>API</a></li>
+      </ul>
+    </nav>
+    <blockquote class="ca-quote">“Records are made. Trophies are won. Legends are remembered.”<cite>— CASPER</cite></blockquote>
+  </aside>
+  <div class="ca-work">
+    <main id="app">
+      <div class="desktop-page">
+        <section class="ca-hero desktop-hero">
+          <div class="desktop-kicker">CASPER SECTOR HOST APPLICATION</div>
+          <h2>How to join CASPER</h2>
+          <p>Start a Sector. Host the competition. Become part of CASPER.</p>
+          <div class="ca-hero-actions desktop-actions">
+            <a class="btn-gold" href="../sectors/index.html">View Sectors</a>
+            <a class="btn-ghost" href="#apply">How to apply</a>
+            <a class="btn-ghost" href="#ready">Open application</a>
+          </div>
+        </section>
+
+        <div class="ca-card join-note">
+          <h3>CASPER operates through Sectors</h3>
+          <p>CASPER is a distributed, multi-sport competition system operated through geographic Sectors. Each Sector is a remotely operated CASPER location maintained by a Host who runs competitions and submits data back to CASPER HQ.</p>
+        </div>
+
+        <div class="desktop-section">
+          <div class="desktop-section-title">WHAT IS A SECTOR?</div>
+          <div class="desktop-grid2">
+            <div class="desktop-card">
+              <h3>A geographic operating unit</h3>
+              <p>A Sector is a geographic operating unit of CASPER. It is operated remotely from CASPER HQ by a Host who runs competitions and regularly submits competition data to CASPER.</p>
+              <p>Sectors can operate anywhere. There is no requirement to publish a street address or an exact physical location.</p>
+            </div>
+            <div class="desktop-card">
+              <h3>The name is not the address</h3>
+              <p>A Sector’s name is not necessarily its exact geographic location. The Host may combine a location or context with another name or identifier.</p>
+              <div class="join-example"><div class="k">Example sector name</div><b>Sector 1 — School</b></div>
+              <div class="join-warn">Do not publish a street address, house number, venue address, or coordinates.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="desktop-section" id="apply">
+          <div class="desktop-section-title">HOW TO APPLY</div>
+          <div class="join-steps">
+            <div class="join-step"><div class="join-num">1</div><div>
+              <h3>Contact CASPER</h3>
+              <p>Create a clear Sector application through either GitHub Issues or GitHub Discussions.</p>
+              <div class="join-links">
+                <a class="primary" href="https://github.com/Anish-C2/CASPER/issues/new">Open a GitHub Issue</a>
+                <a href="https://github.com/Anish-C2/CASPER/discussions">Open a Discussion</a>
+              </div>
+            </div></div>
+            <div class="join-step"><div class="join-num">2</div><div>
+              <h3>Identify the Host</h3>
+              <p>Provide a first name or nickname as the Host. That person is the remote operator of the Sector.</p>
+              <div class="join-example"><div class="k">Example</div>Host: Alex</div>
+            </div></div>
+            <div class="join-step"><div class="join-num">3</div><div>
+              <h3>Name your Sector</h3>
+              <p>Provide the proposed Sector name. Keep it simple and safe. Identify the Sector without giving an exact address.</p>
+              <div class="join-example"><div class="k">Example</div>Sector 1 — School</div>
+              <div class="join-warn">Street addresses, house numbers, exact venue addresses, and coordinates are not required and should not be included.</div>
+            </div></div>
+            <div class="join-step"><div class="join-num">4</div><div>
+              <h3>Provide the player roster</h3>
+              <p>List every player who will participate in the Sector. For each player include only nickname, preferred foot, nationality, birth year (year only), and two clubs.</p>
+              <div class="join-example">
+                <div class="k">Example roster card</div>
+                <p>Alex · Right · USA · 2000 · Newland United, Park FC</p>
+              </div>
+            </div></div>
+            <div class="join-step"><div class="join-num">5</div><div>
+              <h3>CASPER review &amp; approval</h3>
+              <p>CASPER reviews the submitted Sector application. A Sector becomes officially recognized only after approval. Approval is not automatic.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="desktop-section">
+          <div class="desktop-section-title">AFTER APPROVAL</div>
+          <div class="desktop-grid3">
+            <div class="desktop-card"><h3>Host competitions</h3><p>The Host must regularly host and run tournaments and competitions in the Sector.</p></div>
+            <div class="desktop-card"><h3>Stay active</h3><p>Keep competition activity going. A Sector is expected to remain active after it is recognized.</p></div>
+            <div class="desktop-card"><h3>Send data weekly</h3><p>Submit competition data to CASPER every week so the central archive stays current.</p></div>
+          </div>
+        </div>
+
+        <div class="join-weekly" id="weekly">
+          <div class="desktop-kicker">HOST REQUIREMENT</div>
+          <h2>Weekly data submission</h2>
+          <p>Hosts must send their competition data to CASPER every week. That submission keeps the central CASPER archive — statistics, results, records, and historical data — up to date.</p>
+        </div>
+
+        <div class="desktop-section">
+          <div class="desktop-section-title">THE PROCESS</div>
+          <div class="join-timeline">
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>CONTACT CASPER</b><span>Issue or Discussion</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>HOST INFORMATION</b><span>First name or nickname</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>SECTOR NAME</b><span>Safe identifier — not a street address</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>PLAYER ROSTER</b><span>Nickname, foot, nationality, birth year, two clubs</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>CASPER REVIEW</b><span>Application is examined</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>APPROVAL</b><span>Official recognition only after approval</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>HOST COMPETITIONS</b><span>Keep the Sector active</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>SUBMIT DATA WEEKLY</b><span>Update the central archive</span></div></div>
+            <div class="join-node"><div class="join-rail"><div class="join-dot"></div><div class="join-line"></div></div><div class="join-pill"><b>WELCOME TO CASPER</b><span>The Sector is part of the system</span></div></div>
+          </div>
+        </div>
+
+        <div class="desktop-section" id="ready">
+          <div class="desktop-section-title">READY TO APPLY?</div>
+          <div class="join-cta">
+            <h2>Open a Sector application</h2>
+            <p>Send a clear application to CASPER with the Host name, proposed Sector name, and full player roster. Use GitHub Issues or GitHub Discussions.</p>
+            <div class="join-links">
+              <a class="primary" href="https://github.com/Anish-C2/CASPER/issues/new">Apply via GitHub Issues</a>
+              <a href="https://github.com/Anish-C2/CASPER/discussions">Apply via Discussions</a>
+              <a href="../sectors/index.html">Browse existing Sectors</a>
+              <a href="../index.html">Return to CASPER</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="ca-foot site"><div>© 2026 CASPER<br>All rights reserved.</div><div>Sector Host application</div></footer>
+  </div>
+</div>
+<script src="../assets/js/casper-shell.js?v=20260908fit"></script>
 </body>
 </html>
